@@ -1,0 +1,91 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './folio-button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+`<folio-button>` déclenche une action ou une navigation. C'est le seul élément « carte » cliquable du système : bordure fine, fond carte, élévation d'un pixel au survol. Angles droits (`--folio-radius-none`), pas d'ombre — la hiérarchie passe par la bordure et le fond.
+
+<Canvas of={ButtonStories.Card} />
+<Controls of={ButtonStories.Card} />
+
+## When to use
+
+- Pour les actions de contact et de navigation mises en avant (« Me contacter », « Lire mon CV », liens sociaux).
+- Pour toute action qui doit être perçue comme un objet manipulable.
+
+## When not to use
+
+- Pour naviguer dans du texte courant → `folio-link` variant `inline`.
+- Pour filtrer ou sélectionner un état → `folio-chip`.
+- Pour la navigation principale → `folio-link` variant `nav`.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `variant` | `variant` | `'card' \| 'ghost'` | `'card'` | Traitement visuel. `card` : bordé, fond `bg-card`, translation -1px au survol. `ghost` : sans bordure ni fond, texte muted → texte plein au survol. |
+| `href` | `href` | `string \| undefined` | `undefined` | Si défini, rend un `<a>` au lieu d'un `<button>` et navigue vers cette URL. |
+| `target` | `target` | `string \| undefined` | `undefined` | Cible de l'ancre (uniquement avec `href`). `_blank` ajoute automatiquement `rel="noopener noreferrer"`. |
+| `disabled` | `disabled` | `boolean` | `false` | Désactive l'interaction, passe le texte en `text-dim` et le curseur en `not-allowed`. Un bouton désactivé avec `href` rend un `<button>` inerte, jamais un lien. |
+| `type` | `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | Type du bouton dans un formulaire. Ignoré avec `href`. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le libellé du bouton. Verbe d'action court, sans point final. |
+| `icon` | Icône de tête optionnelle. SVG 16×16 recommandé, `stroke: currentColor` pour hériter de la couleur du texte. |
+
+## Events
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `click` | — | Événement natif. Non émis quand `disabled`. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `button` | L'élément `<button>` ou `<a>` interne — pour surcharges ciblées (`folio-button::part(button)`). |
+
+## Examples
+
+### Ghost
+
+Action secondaire, silencieuse. Pas de bordure, pas de translation.
+
+<Canvas of={ButtonStories.Ghost} />
+
+### With icon
+
+<Canvas of={ButtonStories.WithIcon} />
+
+### As link
+
+Avec `href`, le composant rend une ancre : clic-molette, Cmd+clic et « ouvrir dans un nouvel onglet » fonctionnent nativement.
+
+<Canvas of={ButtonStories.AsLink} />
+
+### Disabled
+
+<Canvas of={ButtonStories.Disabled} />
+
+### Group
+
+Espacer les boutons de `--folio-space-3` (12px).
+
+<Canvas of={ButtonStories.Group} />
+
+## Accessibility
+
+- Rend un vrai `<button>` (ou `<a>`) natif : activation Entrée/Espace, exposé correctement aux lecteurs d'écran.
+- Focus clavier : anneau accent 2px, décalé de 3px (`:focus-visible` uniquement — pas d'anneau au clic souris).
+- `disabled` pose `disabled` + `aria-disabled="true"` sur le bouton interne.
+- Le libellé doit décrire l'action, pas le mécanisme (« Lire mon CV », pas « Cliquer ici »).
+
+## Related
+
+- [`folio-link`](?path=/docs/components-link--docs) — navigation textuelle
+- [`folio-chip`](?path=/docs/components-chip--docs) — filtre sélectionnable

@@ -1,0 +1,29 @@
+{
+  "$description": "Folio DS color tokens — dark theme (default). Mirrors portfolio :root plus new status tokens.",
+  "color": {
+    "bg": { "$type": "color", "$value": "#1b1c1e", "$description": "Page background" },
+    "bg-elevated": { "$type": "color", "$value": "#232427", "$description": "Elevated surfaces (hover states, raised panels)" },
+    "bg-card": { "$type": "color", "$value": "#26282b", "$description": "Card background" },
+    "text": { "$type": "color", "$value": "#e7e3d7", "$description": "Primary text" },
+    "text-muted": { "$type": "color", "$value": "rgba(231, 227, 215, 0.5)", "$description": "Secondary text" },
+    "text-dim": { "$type": "color", "$value": "rgba(231, 227, 215, 0.24)", "$description": "Tertiary / disabled text" },
+    "border": { "$type": "color", "$value": "rgba(231, 227, 215, 0.12)", "$description": "Default border" },
+    "border-hover": { "$type": "color", "$value": "rgba(231, 227, 215, 0.26)", "$description": "Border on hover / emphasis" },
+    "accent": { "$type": "color", "$value": "#8ba6c6", "$description": "Accent (interactive emphasis)" },
+    "accent-strong": { "$type": "color", "$value": "#a7bdd6", "$description": "Accent, stronger (hover)" },
+    "accent-soft": { "$type": "color", "$value": "rgba(139, 166, 198, 0.14)", "$description": "Accent tint (backgrounds)" },
+    "surface": { "$type": "color", "$value": "rgba(30, 31, 34, 0.72)", "$description": "Translucent surface (overlays)" },
+    "surface-light": { "$type": "color", "$value": "rgba(30, 31, 34, 0.6)", "$description": "Lighter translucent surface" },
+    "surface-border": { "$type": "color", "$value": "rgba(231, 227, 215, 0.08)", "$description": "Border on translucent surfaces" },
+    "ink": { "$type": "color", "$value": "rgba(231, 227, 215, 0.1)", "$description": "Faint ink (decorative text, separators)" },
+    "ink-strong": { "$type": "color", "$value": "rgba(231, 227, 215, 0.28)", "$description": "Stronger faint ink" },
+    "status-ok": { "$type": "color", "$value": "#4caf6e", "$description": "Positive / success" },
+    "status-ok-soft": { "$type": "color", "$value": "rgba(76, 175, 110, 0.14)", "$description": "Positive tint background" },
+    "status-warn": { "$type": "color", "$value": "#e8a020", "$description": "Warning / caution" },
+    "status-warn-soft": { "$type": "color", "$value": "rgba(232, 160, 32, 0.14)", "$description": "Warning tint background" },
+    "status-danger": { "$type": "color", "$value": "#e85050", "$description": "Critical / error" },
+    "status-danger-soft": { "$type": "color", "$value": "rgba(232, 80, 80, 0.14)", "$description": "Critical tint background" },
+    "status-info": { "$type": "color", "$value": "#8888ff", "$description": "Informational / neutral highlight" },
+    "status-info-soft": { "$type": "color", "$value": "rgba(136, 136, 255, 0.14)", "$description": "Informational tint background" }
+  }
+}

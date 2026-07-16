@@ -1,0 +1,64 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as FigureStories from './folio-figure.stories';
+
+<Meta of={FigureStories} />
+
+# Figure
+
+`<folio-figure>` présente l'imagerie des case studies : image bordée, légende optionnelle, zoom au clic. Sans `src`, un placeholder étiqueté préserve la mise en page. `loading="lazy"` par défaut.
+
+<Canvas of={FigureStories.Default} />
+<Controls of={FigureStories.Default} />
+
+## When to use
+
+- Captures, wireframes et visuels dans un case study.
+- Tout visuel qui mérite une légende.
+
+## When not to use
+
+- Images purement décoratives : `<img>` simple avec `alt=""`.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `src` | `src` | `string` | `''` | URL de l'image. Vide → placeholder « image à venir ». |
+| `alt` | `alt` | `string` | `''` | Texte alternatif. Obligatoire pour toute image porteuse de sens. |
+| `caption` | `caption` | `string` | `''` | Légende sous l'image. Vide = pas de `<figcaption>`. |
+| `zoomable` | `zoomable` | `boolean` | `false` | Curseur `zoom-in`, scale 1.02 au survol, émet `folio-zoom` au clic. |
+
+## Events
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `folio-zoom` | `{ src: string, alt: string }` | Émis au clic quand `zoomable`. `folio-lightbox` l'écoute automatiquement au niveau document. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `image` | L'élément `<img>`. |
+| `caption` | Le `<figcaption>`. |
+
+## Examples
+
+### Zoomable + lightbox
+
+Poser un `<folio-lightbox>` unique en fin de page ; chaque figure `zoomable` s'y connecte sans câblage.
+
+<Canvas of={FigureStories.Zoomable} />
+
+### Placeholder
+
+<Canvas of={FigureStories.Placeholder} />
+
+## Accessibility
+
+- Sémantique `<figure>` / `<figcaption>` native.
+- Le placeholder expose `role="img"` avec l'`alt` en `aria-label`.
+- La légende ne remplace pas l'`alt` : l'`alt` décrit l'image, la légende la commente.
+
+## Related
+
+- [`folio-lightbox`](?path=/docs/components-lightbox--docs)

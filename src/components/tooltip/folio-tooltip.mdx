@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TooltipStories from './folio-tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+`<folio-tooltip>` révèle un court texte d'appoint au survol ou au focus clavier de l'élément qu'il enveloppe. Couleurs inversées (fond `text`, texte `bg`) avec triangle CSS. Le contenu doit être **non essentiel** : jamais d'information critique cachée dans un tooltip.
+
+<Canvas of={TooltipStories.Top} />
+<Controls of={TooltipStories.Top} />
+
+## When to use
+
+- Préciser le comportement d'un contrôle iconique (« Ouvre dans un nouvel onglet »).
+- Donner le libellé d'un bouton icône seul.
+
+## When not to use
+
+- Information nécessaire à la décision → l'écrire dans l'interface.
+- Contenu interactif ou multi-lignes : un tooltip est une ligne de texte.
+- Sur mobile : pas de hover — prévoir un équivalent visible.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | `''` | Le texte du tooltip (une courte ligne, pas de HTML). |
+| `position` | `position` | `'top' \| 'bottom'` | `'top'` | Côté d'apparition par rapport à l'élément enveloppé. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | L'élément déclencheur (bouton, lien, icône). |
+
+## Examples
+
+### Bottom
+
+<Canvas of={TooltipStories.Bottom} />
+
+## Behavior
+
+- Apparition : `mouseenter` / `focusin`. Disparition : `mouseleave` / `focusout` / touche Échap.
+- Transition opacité + translation 2px en `--folio-transition-fast`.
+
+## Accessibility
+
+- Le tooltip a `role="tooltip"` et est lié au déclencheur par `aria-describedby`.
+- Se déclenche au focus clavier, pas seulement au survol.
+- Échap le ferme (critère WCAG 1.4.13 — dismissable).
+- Le contenu reste du texte d'appoint : l'interface doit être utilisable sans lui.
+
+## Related
+
+- [`folio-badge`](?path=/docs/components-badge--docs) — pour une information persistante

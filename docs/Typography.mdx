@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+La hiérarchie typographique est la colonne vertébrale du système — c'est elle, pas la décoration, qui structure les pages. Deux familles :
+
+- **Inter** (`--folio-font-family-sans`) — tout le texte courant et l'UI, interlettrage -0.01em.
+- **IBM Plex Mono** (`--folio-font-family-mono`) — les labels techniques, index, dates et chiffres, toujours en `tabular-nums` quand ils s'alignent.
+
+Les deux sont auto-hébergées (aucune requête tierce).
+
+## Échelle
+
+| Token | Valeur | Usage | Aperçu |
+| --- | --- | --- | --- |
+| `--folio-text-hero` | `clamp(2.2rem, 5vw, 3.8rem)` | Titre du hero | <span style={{fontSize:'var(--folio-text-hero)',fontWeight:600,letterSpacing:'-0.03em'}}>Aa</span> |
+| `--folio-text-title` | `clamp(2rem, 4vw, 3rem)` | Titres de page / case study | <span style={{fontSize:'var(--folio-text-title)',fontWeight:600,letterSpacing:'-0.03em'}}>Aa</span> |
+| `--folio-text-subtitle` | `1.125rem` | Chapeau, paragraphe d'intro | <span style={{fontSize:'var(--folio-text-subtitle)'}}>Aa</span> |
+| `--folio-text-body` | `0.95rem` | Corps de texte (lh 1.65) | <span style={{fontSize:'var(--folio-text-body)'}}>Aa</span> |
+| `--folio-text-small` | `0.875rem` | UI (nav, boutons) | <span style={{fontSize:'var(--folio-text-small)'}}>Aa</span> |
+| `--folio-text-caption` | `0.8125rem` | Légendes, UI secondaire | <span style={{fontSize:'var(--folio-text-caption)'}}>Aa</span> |
+| `--folio-text-label` | `0.6875rem` | Labels mono majuscules, tags | <span style={{fontFamily:'var(--folio-font-family-mono)',fontSize:'var(--folio-text-label)',textTransform:'uppercase',letterSpacing:'0.1em'}}>Aa</span> |
+| `--folio-text-micro` | `0.62rem` | Annotations techniques minimales | <span style={{fontFamily:'var(--folio-font-family-mono)',fontSize:'var(--folio-text-micro)'}}>Aa</span> |
+
+## Styles composés
+
+**L'eyebrow** — le style signature, encapsulé dans `folio-section-title` :
+
+```css
+font-family: var(--folio-font-family-mono);
+font-size: var(--folio-text-label);
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.1em–0.14em;
+color: var(--folio-color-text-muted);
+```
+
+**Les chiffres** — partout où des nombres s'alignent (stats, index, dates) :
+
+```css
+font-family: var(--folio-font-family-mono);
+font-variant-numeric: tabular-nums;
+```
+
+## Règles
+
+- Titres display en graisse 600, interlettrage -0.03em, interligne 1.15.
+- Corps en 400, interligne 1.6–1.7, largeur de mesure ≤ 60ch.
+- Jamais plus de deux graisses par écran ; la hiérarchie passe par la taille et la couleur.

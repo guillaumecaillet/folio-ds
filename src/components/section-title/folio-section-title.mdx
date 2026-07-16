@@ -1,0 +1,53 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as SectionTitleStories from './folio-section-title.stories';
+
+<Meta of={SectionTitleStories} />
+
+# SectionTitle
+
+`<folio-section-title>` est l'« eyebrow » signature du système : petit intitulé mono, majuscules, interlettrage large, qui ouvre chaque section de contenu. Dans une logique Swiss, c'est lui qui structure la page — pas de gros titres décoratifs entre les sections.
+
+<Canvas of={SectionTitleStories.Default} />
+<Controls of={SectionTitleStories.Default} />
+
+## When to use
+
+- En tête de chaque section de case study (« Le problème », « La méthode », « Les résultats »).
+- Comme label de bloc dans une page dense (contact, expérience).
+
+## When not to use
+
+- Titre principal de page : utiliser la typo `--folio-text-title` directement.
+- Étiquette d'un item individuel → `folio-tag`.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `level` | `level` | `number` | `2` | Niveau de titre exposé à l'outline du document via `role="heading"` + `aria-level`. Borné à 1–6. |
+| `dim` | `dim` | `boolean` | `false` | Passe la couleur de `text-muted` à `text-dim` pour les labels moins importants. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le texte du titre, en casse normale (les majuscules sont appliquées en CSS). |
+
+## Examples
+
+### Dim
+
+<Canvas of={SectionTitleStories.Dim} />
+
+### Opening a section
+
+<Canvas of={SectionTitleStories.InSection} />
+
+## Accessibility
+
+- Exposé comme un vrai titre (`role="heading"`, `aria-level`) : la navigation par titres des lecteurs d'écran fonctionne. Choisir `level` selon la structure logique, pas l'apparence.
+- Majuscules appliquées en CSS : le texte source garde sa casse pour une vocalisation correcte.
+
+## Related
+
+- [`folio-stat`](?path=/docs/components-stat--docs) — réutilise le même style de label

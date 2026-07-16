@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ProjectRowStories from './folio-project-row.stories';
+
+<Meta of={ProjectRowStories} />
+
+# ProjectRow
+
+`<folio-project-row>` est la ligne de liste de projets : index mono, nom, société, type et flèche. Au survol, index, nom et flèche passent à l'accent et la flèche avance de 4px. Les lignes empilées partagent leurs bordures (la dernière ferme la liste).
+
+<Canvas of={ProjectRowStories.Default} />
+<Controls of={ProjectRowStories.Default} />
+
+## When to use
+
+- Liste principale des projets/case studies.
+- Tout index navigable où chaque entrée porte 2–4 métadonnées.
+
+## When not to use
+
+- Cartes visuelles avec vignettes — ce composant est volontairement typographique.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `index` | `index` | `string` | `''` | Index zéro-paddé (`01`, `02`…), mono tabulaire. Vide = masqué. |
+| `name` | `name` | `string` | `''` | Nom du projet. |
+| `company` | `company` | `string` | `''` | Société ou client. Vide = masqué. |
+| `kind` | `kind` | `string` | `''` | Type de projet, mono majuscules (masqué < 768px). |
+| `href` | `href` | `string` | `'#'` | URL du case study. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| `name` | Nom riche (prioritaire sur la propriété `name`). |
+
+## CSS custom properties
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `--folio-project-row-company` | `var(--folio-color-text-muted)` | Couleur du label société — pour teinter chaque client différemment. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `row` | L'ancre interne. |
+
+## Examples
+
+### List
+
+Empiler les lignes sans wrapper : les bordures se partagent. Couleur société personnalisée via la custom property.
+
+<Canvas of={ProjectRowStories.List} />
+
+## Accessibility
+
+- Toute la ligne est une seule ancre : une seule tabulation par projet.
+- La flèche est `aria-hidden` ; le nom du lien vocalisé est « index, nom, société, type ».
+- Sous 768px la colonne `kind` disparaît — l'information doit rester disponible sur la page de destination.
+
+## Related
+
+- [`folio-accordion`](?path=/docs/components-accordion--docs) — liste bordée dépliable
+- [`folio-contact-row`](?path=/docs/components-contactrow--docs) — liste bordée de liens

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Folio DS — démo no-build</title>
+    <link rel="stylesheet" href="./src/fonts/fonts.css" />
+    <link rel="stylesheet" href="./src/styles/tokens.css" />
+    <script type="module" src="./dist/folio-ds.js"></script>
+    <style>
+      * { margin: 0; box-sizing: border-box; }
+      body {
+        background: var(--folio-color-bg);
+        color: var(--folio-color-text);
+        font-family: var(--folio-font-family-sans);
+        letter-spacing: -0.01em;
+        padding: var(--folio-space-8);
+        transition: background 0.25s;
+      }
+      main { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--folio-space-8); }
+      header { display: flex; justify-content: space-between; align-items: center; }
+      h1 { font-size: var(--folio-text-title); font-weight: 600; letter-spacing: -0.03em; }
+      section { display: flex; flex-direction: column; gap: var(--folio-space-4); }
+      .row { display: flex; flex-wrap: wrap; gap: var(--folio-space-3); align-items: center; }
+      .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--folio-space-6); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Folio DS — démo</h1>
+        <div class="row">
+          <folio-local-time label="Nantes, FR"></folio-local-time>
+          <folio-theme-toggle></folio-theme-toggle>
+        </div>
+      </header>
+
+      <section>
+        <folio-section-title>Boutons & liens</folio-section-title>
+        <div class="row">
+          <folio-button>Me contacter</folio-button>
+          <folio-button variant="ghost">Secondaire</folio-button>
+          <folio-button disabled>Désactivé</folio-button>
+          <folio-link variant="back" href="#">Tous les projets</folio-link>
+          <folio-tooltip text="Ouvre dans un nouvel onglet">
+            <folio-link href="#">lien inline</folio-link>
+          </folio-tooltip>
+        </div>
+      </section>
+
+      <section>
+        <folio-section-title>Tags, chips & badges</folio-section-title>
+        <div class="row">
+          <folio-tag>Design system</folio-tag>
+          <folio-tag>UX Research</folio-tag>
+          <folio-chip selected>Tous</folio-chip>
+          <folio-chip>Produit</folio-chip>
+          <folio-badge tone="ok">Livré</folio-badge>
+          <folio-badge tone="warn">En cours</folio-badge>
+          <folio-badge tone="danger">Bloqué</folio-badge>
+        </div>
+      </section>
+
+      <section>
+        <folio-section-title>Stats</folio-section-title>
+        <div class="grid3">
+          <folio-stat variant="bar" value="-38%" label="Temps de saisie"></folio-stat>
+          <folio-stat variant="bar" value="×2" label="Vitesse de livraison"></folio-stat>
+          <folio-stat variant="bar" value="9" label="Équipes"></folio-stat>
+        </div>
+      </section>
+
+      <section>
+        <folio-section-title>Projets</folio-section-title>
+        <div>
+          <folio-project-row index="01" name="Audit du design system" company="Oplit" kind="Design system" href="#"></folio-project-row>
+          <folio-project-row index="02" name="Store association" company="PrestaShop" kind="Parcours" href="#"></folio-project-row>
+        </div>
+      </section>
+
+      <section>
+        <folio-section-title>Expérience</folio-section-title>
+        <folio-accordion exclusive>
+          <folio-accordion-item heading="Senior Product Designer" meta="2023 — 2025" open>
+            Design system, recherche et livraison produit sur un SaaS industriel.
+          </folio-accordion-item>
+          <folio-accordion-item heading="Product Designer" meta="2021 — 2023">
+            Parcours d'onboarding et tunnels d'authentification.
+          </folio-accordion-item>
+        </folio-accordion>
+      </section>
+
+      <section>
+        <folio-section-title>Contact</folio-section-title>
+        <div>
+          <folio-contact-row label="Email" value="hello@example.com" href="mailto:hello@example.com"></folio-contact-row>
+          <folio-contact-row label="LinkedIn" value="in/guillaumecaillet" href="#" target="_blank"></folio-contact-row>
+        </div>
+      </section>
+
+      <section>
+        <folio-section-title>Figure & lightbox</folio-section-title>
+        <folio-figure alt="Placeholder" caption="Placeholder sans src — la mise en page tient."></folio-figure>
+      </section>
+    </main>
+    <folio-lightbox></folio-lightbox>
+    <folio-toast id="toast"></folio-toast>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as LinkStories from './folio-link.stories';
+
+<Meta of={LinkStories} />
+
+# Link
+
+`<folio-link>` navigue. Trois variantes : `nav` (muted, soulignement animé au survol — barres de navigation), `inline` (souligné accent, dans le corps de texte) et `back` (flèche « ← » qui recule au survol, retour vers une liste).
+
+<Canvas of={LinkStories.Inline} />
+<Controls of={LinkStories.Inline} />
+
+## When to use
+
+- `nav` : navigation principale et secondaire.
+- `inline` : lien dans une phrase.
+- `back` : retour au niveau supérieur (case study → liste des projets).
+
+## When not to use
+
+- Action mise en avant (contact, CV) → `folio-button`.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `href` | `href` | `string` | `'#'` | URL de destination. |
+| `variant` | `variant` | `'nav' \| 'inline' \| 'back'` | `'inline'` | Traitement visuel (voir ci-dessus). |
+| `active` | `active` | `boolean` | `false` | Variante `nav` uniquement : marque la page courante — couleur pleine + `aria-current="page"`. |
+| `target` | `target` | `string \| undefined` | `undefined` | Cible de l'ancre. `_blank` ajoute `rel="noopener noreferrer"`. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le texte du lien. Doit décrire la destination. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `anchor` | L'élément `<a>` interne. |
+
+## Examples
+
+### Nav
+
+Le soulignement croît de 0 à 100% au survol (`--folio-transition`). L'item actif est en couleur pleine.
+
+<Canvas of={LinkStories.Nav} />
+
+### Back
+
+<Canvas of={LinkStories.Back} />
+
+### Inline, in prose
+
+<Canvas of={LinkStories.InProse} />
+
+## Accessibility
+
+- Ancre native : navigation clavier, historique, ouverture en nouvel onglet.
+- `active` pose `aria-current="page"` — l'état actif n'est pas que visuel.
+- La flèche de la variante `back` est `aria-hidden` : seuls les mots sont vocalisés.
+- La variante `inline` reste soulignée au repos : le lien est identifiable sans la couleur.
+
+## Related
+
+- [`folio-button`](?path=/docs/components-button--docs) — action mise en avant

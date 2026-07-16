@@ -1,0 +1,38 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as LocalTimeStories from './folio-local-time.stories';
+
+<Meta of={LocalTimeStories} />
+
+# LocalTime
+
+`<folio-local-time>` affiche l'heure courante d'un fuseau donné en chiffres mono tabulaires, mise à jour toutes les 30 secondes. Utilisé dans le footer comme signal de présence (« il est telle heure chez moi »).
+
+<Canvas of={LocalTimeStories.Default} />
+<Controls of={LocalTimeStories.Default} />
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `timezone` | `timezone` | `string` | `'Europe/Paris'` | Identifiant IANA (`Europe/Paris`, `America/New_York`…). Formaté en `HH:MM` via `Intl.DateTimeFormat`. |
+| `label` | `label` | `string` | `''` | Annotation après l'heure (ville), en mono majuscules dim. Vide = masquée. |
+
+## Examples
+
+### Time only
+
+<Canvas of={LocalTimeStories.TimeOnly} />
+
+## Behavior
+
+- Timer interne (30 s) créé au montage, nettoyé au démontage — pas de fuite si le composant est retiré du DOM.
+- `font-variant-numeric: tabular-nums` : les chiffres changent sans faire bouger la mise en page.
+
+## Accessibility
+
+- L'heure est rendue dans un `<time datetime="…">` avec l'ISO 8601 complet.
+- Aucune annonce automatique à chaque mise à jour (pas de `aria-live`) : une horloge qui s'annonce toutes les 30 s serait insupportable.
+
+## Related
+
+- [`folio-contact-row`](?path=/docs/components-contactrow--docs) — l'autre composant du bloc footer/contact

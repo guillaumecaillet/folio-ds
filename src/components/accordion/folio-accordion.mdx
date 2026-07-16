@@ -1,0 +1,72 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as AccordionStories from './folio-accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+`<folio-accordion>` groupe des `<folio-accordion-item>` en liste bordée dépliable — le pattern du parcours professionnel. Chaque entrée : titre, annotation mono à droite (dates), toggle « + » qui pivote en croix. Le panneau s'anime en hauteur via `grid-template-rows`.
+
+<Canvas of={AccordionStories.Default} />
+<Controls of={AccordionStories.Default} />
+
+## When to use
+
+- Listes chronologiques denses (expériences, formations).
+- Contenus secondaires consultables à la demande.
+
+## When not to use
+
+- Contenu essentiel : ne pas replier ce que la page doit raconter.
+- Un seul item : afficher le contenu directement.
+
+## Properties — `folio-accordion`
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `exclusive` | `exclusive` | `boolean` | `false` | Un seul item ouvert à la fois : en ouvrir un ferme les autres. |
+
+## Properties — `folio-accordion-item`
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `heading` | `heading` | `string` | `''` | Titre de l'entrée. |
+| `meta` | `meta` | `string` | `''` | Annotation mono tabulaire à droite (dates, durée). Vide = masquée. |
+| `open` | `open` | `boolean` | `false` | État déplié. Reflété en attribut — utilisable pour ouvrir un item par défaut. |
+
+## Slots — `folio-accordion-item`
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le contenu du panneau. |
+| `heading` | Titre riche (prioritaire sur la propriété `heading`). |
+
+## Events — `folio-accordion-item`
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `folio-toggle` | `{ open: boolean }` | Émis à chaque ouverture/fermeture. Bulle jusqu'à l'accordéon (qui s'en sert pour le mode `exclusive`). |
+
+## CSS parts — `folio-accordion-item`
+
+| Part | Description |
+| --- | --- |
+| `header` | Le bouton d'en-tête cliquable. |
+| `panel` | La région de contenu dépliable. |
+
+## Examples
+
+### Exclusive
+
+<Canvas of={AccordionStories.Exclusive} />
+
+## Accessibility
+
+- Pattern disclosure complet : l'en-tête est un `<button>` avec `aria-expanded` et `aria-controls` pointant le panneau (`role="region"`).
+- Clavier : Tab pour circuler entre les en-têtes, Entrée/Espace pour basculer.
+- Le toggle « + » est `aria-hidden` — l'état passe par `aria-expanded`.
+- Animation de hauteur désactivée avec `prefers-reduced-motion`.
+
+## Related
+
+- [`folio-project-row`](?path=/docs/components-projectrow--docs) — l'autre pattern de liste bordée

@@ -1,0 +1,58 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as LightboxStories from './folio-lightbox.stories';
+
+<Meta of={LightboxStories} />
+
+# Lightbox
+
+`<folio-lightbox>` est l'overlay plein écran d'agrandissement d'images. Une instance par page suffit : elle écoute les événements `folio-zoom` des `folio-figure` au niveau document. Fond de page translucide flouté, fermeture au clic, à Échap ou via le bouton ✕.
+
+<Canvas of={LightboxStories.WithFigures} />
+
+## When to use
+
+- Case studies avec captures denses qui méritent un examen en grand.
+
+## When not to use
+
+- Contenu interactif ou galeries avec navigation — c'est un agrandisseur, pas un carrousel.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `manual` | `manual` | `boolean` | `false` | Désactive l'écoute automatique de `folio-zoom` sur `document`. Ouvrir alors via `show()`. |
+
+## Methods
+
+| Method | Description |
+| --- | --- |
+| `show(src, alt?)` | Ouvre l'overlay sur l'image donnée, gèle le scroll de la page, déplace le focus sur le bouton de fermeture. |
+| `hide()` | Ferme, restaure le scroll et le focus, émet `folio-close`. |
+
+## Events
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `folio-close` | — | Émis à la fermeture. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `image` | L'`<img>` agrandi. |
+
+## Behavior
+
+1. Ouverture : mémorise l'élément focalisé, `overflow: hidden` sur `<body>`, focus sur ✕.
+2. Fermeture : clic n'importe où, Échap, ou bouton ✕ ; le focus revient à l'élément d'origine.
+
+## Accessibility
+
+- `role="dialog"` + `aria-modal="true"`, nommé par l'`alt` de l'image.
+- Gestion complète du focus (piégé sur le bouton de fermeture, restauré à la sortie).
+- Échap ferme systématiquement — y compris avec `manual`.
+
+## Related
+
+- [`folio-figure`](?path=/docs/components-figure--docs) — la source des événements `folio-zoom`

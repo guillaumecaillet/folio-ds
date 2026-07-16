@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as StatStories from './folio-stat.stories';
+
+<Meta of={StatStories} />
+
+# Stat
+
+`<folio-stat>` présente un chiffre clé et son libellé : métriques d'impact des case studies, statistiques du hero. La valeur est en mono tabulaire ; le label reprend le style eyebrow. Privilégier les **stats de performance** (« -38% », « ×2 ») aux stats de volume.
+
+<Canvas of={StatStories.Plain} />
+<Controls of={StatStories.Plain} />
+
+## When to use
+
+- Résultats mesurés d'un projet (avant/après).
+- Chiffres de synthèse en tête de page.
+
+## When not to use
+
+- Donnée tabulaire dense → un vrai tableau.
+- Statut qualitatif → `folio-badge`.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | `''` | Le chiffre, tel qu'affiché (`-38%`, `×2`, `44`). Chaîne libre : unités et signes inclus. |
+| `label` | `label` | `string` | `''` | Ce que mesure le chiffre. |
+| `variant` | `variant` | `'plain' \| 'bar'` | `'plain'` | `bar` ajoute la bordure gauche accent 2px + retrait — le traitement des stats du hero. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| `value` | Contenu riche pour la valeur (prioritaire sur la propriété `value`). |
+| `label` | Contenu riche pour le label (prioritaire sur la propriété `label`). |
+
+## Examples
+
+### Bar
+
+<Canvas of={StatStories.Bar} />
+
+### Metrics row
+
+Griller les stats par 3 avec `gap: --folio-space-6`.
+
+<Canvas of={StatStories.MetricsRow} />
+
+## Accessibility
+
+- Lecture naturelle : valeur puis label dans le même bloc — « -38%, temps de saisie ».
+- `tabular-nums` stabilise l'alignement sans altérer la vocalisation.
+- Éviter les valeurs uniquement symboliques (« ↑ ») : toujours un chiffre ou un mot.
+
+## Related
+
+- [`folio-section-title`](?path=/docs/components-sectiontitle--docs) — même style de label

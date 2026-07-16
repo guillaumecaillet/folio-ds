@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as BadgeStories from './folio-badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+`<folio-badge>` signale un statut ou attire l'attention sur une petite métadonnée : texte coloré sur teinte du même ton, hauteur fixe 24px, mono majuscules. Les cinq tons couvrent tous les besoins sémantiques — ne pas inventer de couleurs ad hoc.
+
+<Canvas of={BadgeStories.Accent} />
+<Controls of={BadgeStories.Accent} />
+
+## When to use
+
+- Statut d'un élément dans une liste ou un tableau (livré, en cours, bloqué).
+- Mise en avant ponctuelle (« Nouveau », « Focus »).
+
+## When not to use
+
+- Catégorie descriptive sans sémantique de statut → `folio-tag`.
+- Texte long : un badge porte un ou deux mots, jamais une phrase.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `tone` | `tone` | `'accent' \| 'ok' \| 'warn' \| 'danger' \| 'info'` | `'accent'` | Ton sémantique. `accent` = mise en avant neutre ; `ok` = positif ; `warn` = vigilance ; `danger` = critique ; `info` = information. Chaque ton mappe une paire de tokens `--folio-color-status-*` / `-soft`. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le texte du badge (un ou deux mots). |
+
+## Examples
+
+### All tones
+
+<Canvas of={BadgeStories.Tones} />
+
+## Accessibility
+
+- Rendu `<span>` non interactif.
+- La couleur seule ne doit pas porter le sens : le texte du badge doit être compréhensible sans percevoir le ton (« Bloqué », pas « ! »).
+- Les tons light sont assombris pour tenir ≥ 4.5:1 sur les fonds clairs.
+
+## Related
+
+- [`folio-tag`](?path=/docs/components-tag--docs) — étiquette catégorielle

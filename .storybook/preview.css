@@ -1,0 +1,41 @@
+/* Storybook canvas chrome for Folio DS */
+html,
+body,
+.sb-show-main {
+  background: var(--folio-color-bg) !important;
+  color: var(--folio-color-text);
+  font-family: var(--folio-font-family-sans);
+  letter-spacing: -0.01em;
+  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sb-show-main.sb-main-padded {
+  padding: 2rem;
+}
+
+/* Docs pages follow the theme too */
+.sbdocs-wrapper {
+  background: var(--folio-color-bg) !important;
+}
+.sbdocs-content :where(h1, h2, h3, h4, p, li, strong, em, blockquote) {
+  color: var(--folio-color-text) !important;
+}
+.sbdocs-content :where(h1, h2) {
+  border-bottom-color: var(--folio-color-border) !important;
+}
+.sbdocs-content :where(td, th) {
+  color: var(--folio-color-text) !important;
+  border-color: var(--folio-color-border) !important;
+  background: transparent !important;
+}
+.sbdocs-content table {
+  border-color: var(--folio-color-border) !important;
+}
+.sbdocs-content code:not(pre code) {
+  background: var(--folio-color-bg-elevated);
+  border: 1px solid var(--folio-color-border);
+  color: var(--folio-color-text);
+}
+.sbdocs.sbdocs-preview {
+  background: var(--folio-color-bg);
+}

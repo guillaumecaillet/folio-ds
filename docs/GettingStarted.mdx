@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting started" />
+
+# Folio DS
+
+Le design system du portfolio de Guillaume Caillet. Direction **Swiss design** : grille stricte, hiérarchie typographique, blanc tournant, angles droits, aucun ornement. Dix-sept web components construits avec [Lit](https://lit.dev), thémés dark/light par custom properties, utilisables dans n'importe quelle page HTML — avec ou sans framework.
+
+## Installation
+
+### Sans build (recommandé pour le portfolio)
+
+```html
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <link rel="stylesheet" href="folio-ds/dist/tokens.css" />
+    <script type="module" src="folio-ds/dist/folio-ds.js"></script>
+  </head>
+  <body>
+    <folio-button href="mailto:hello@example.com">Me contacter</folio-button>
+  </body>
+</html>
+```
+
+`tokens.css` définit les `--folio-*` sur `:root` (thème dark) et `html[data-theme="light"]`. Le bundle JS enregistre tous les custom elements à l'import.
+
+### Avec bundler
+
+```bash
+npm install @gcaillet/folio-ds
+```
+
+```js
+import '@gcaillet/folio-ds';
+import '@gcaillet/folio-ds/tokens.css';
+```
+
+## Thème
+
+Le thème se pilote avec un seul attribut : `data-theme="dark" | "light"` sur `<html>`. `<folio-theme-toggle>` fait la bascule et la persistance pour vous.
+
+## Conventions
+
+- **Préfixe** : tous les éléments sont `folio-*`, tous les tokens `--folio-*`, tous les événements custom `folio-*`.
+- **Événements** : `CustomEvent` avec `bubbles: true` et `composed: true` — écoutables sur n'importe quel ancêtre.
+- **Slots vs propriétés** : le texte simple passe par propriété, le contenu riche par slot (le slot gagne).
+- **Radius zéro** : aucun composant n'arrondit ses angles. C'est un choix d'identité, pas un oubli.
+
+## Composants
+
+| Composant | Rôle |
+| --- | --- |
+| `folio-button` | Action ou navigation mise en avant |
+| `folio-tag` | Étiquette catégorielle statique |
+| `folio-chip` | Filtre sélectionnable |
+| `folio-badge` | Statut sémantique (ok/warn/danger/info/accent) |
+| `folio-link` | Navigation (nav / inline / back) |
+| `folio-section-title` | Eyebrow mono majuscules de section |
+| `folio-theme-toggle` | Bascule dark/light persistée |
+| `folio-local-time` | Horloge d'un fuseau, mono tabulaire |
+| `folio-tooltip` | Texte d'appoint au survol/focus |
+| `folio-stat` | Chiffre clé + label |
+| `folio-accordion` / `folio-accordion-item` | Liste dépliable ARIA |
+| `folio-project-row` | Ligne de liste de projets |
+| `folio-contact-row` | Ligne label/valeur cliquable |
+| `folio-figure` | Image + légende + zoom |
+| `folio-toast` | Confirmation éphémère |
+| `folio-lightbox` | Agrandissement d'image plein écran |
+
+## Roadmap
+
+Hors v1 : navigation complète, footer composé, i18n. Le pont Figma (variables, styles, composants) est généré depuis les tokens DTCG du dossier `tokens/`.

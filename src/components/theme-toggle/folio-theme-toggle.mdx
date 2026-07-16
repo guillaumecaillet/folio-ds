@@ -1,0 +1,48 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ThemeToggleStories from './folio-theme-toggle.stories';
+
+<Meta of={ThemeToggleStories} />
+
+# ThemeToggle
+
+`<folio-theme-toggle>` bascule entre les thèmes sombre (défaut) et clair : il écrit `data-theme` sur `<html>`, persiste le choix dans `localStorage('folio-theme')` et anime le cross-fade soleil/lune. Tout le système se rethème via les custom properties — aucun autre composant n'a besoin d'être notifié.
+
+<Canvas of={ThemeToggleStories.Default} />
+
+> Cliquer le toggle change réellement le thème de cette page — même mécanisme que la toolbar Storybook.
+
+## When to use
+
+- Une seule instance, dans la navigation.
+
+## Properties
+
+Aucune propriété publique. L'état initial est résolu dans cet ordre : `localStorage('folio-theme')` → attribut `data-theme` existant sur `<html>` → `dark`.
+
+## Events
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `folio-theme-change` | `{ theme: 'dark' \| 'light' }` | Émis après chaque bascule utilisateur (pas à l'initialisation). Utile pour synchroniser `<meta name="theme-color">` ou des visuels dépendants du thème. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `button` | Le `<button>` interne 32×32. |
+
+## Behavior
+
+1. Au montage : lit `localStorage`, puis `data-theme` courant, applique le thème sans événement.
+2. Au clic : bascule, écrit `data-theme` + `localStorage`, émet `folio-theme-change`.
+3. Icônes : lune visible en dark, soleil en light, rotation + scale en `--folio-transition`.
+
+## Accessibility
+
+- `aria-label` dynamique décrivant l'action à venir (« Switch to light theme »), pas l'état courant.
+- Les icônes sont `aria-hidden` ; l'information passe par le label.
+- Respecte `prefers-reduced-motion` : le cross-fade devient instantané.
+
+## Related
+
+- [Foundations / Colors](?path=/docs/foundations-colors--docs) — le mapping dark/light des tokens

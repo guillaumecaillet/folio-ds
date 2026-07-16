@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ContactRowStories from './folio-contact-row.stories';
+
+<Meta of={ContactRowStories} />
+
+# ContactRow
+
+`<folio-contact-row>` est une ligne de contact : label mono majuscules à gauche, valeur à droite, toute la ligne cliquable. Au survol, la ligne s'indente de 12px et les deux textes s'éclaircissent. Empilées, les lignes forment le bloc contact.
+
+<Canvas of={ContactRowStories.Default} />
+<Controls of={ContactRowStories.Default} />
+
+## When to use
+
+- Bloc contact (email, réseaux, CV).
+- Paires clé/valeur navigables.
+
+## When not to use
+
+- Paires clé/valeur non cliquables : utiliser une simple grille typographique.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `label` | `label` | `string` | `''` | Clé à gauche (« Email », « LinkedIn »), mono majuscules dim. |
+| `value` | `value` | `string` | `''` | Valeur à droite (adresse, handle). |
+| `href` | `href` | `string` | `'#'` | Destination (`mailto:`, URL). |
+| `target` | `target` | `string \| undefined` | `undefined` | `_blank` ajoute `rel="noopener noreferrer"`. |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `row` | L'ancre interne. |
+
+## Examples
+
+### Contact block
+
+<Canvas of={ContactRowStories.Block} />
+
+## Accessibility
+
+- Le nom accessible du lien est « label, valeur » — explicite hors contexte.
+- L'indentation au survol est purement décorative et désactivée en `prefers-reduced-motion`.
+
+## Related
+
+- [`folio-project-row`](?path=/docs/components-projectrow--docs)
+- [`folio-local-time`](?path=/docs/components-localtime--docs)

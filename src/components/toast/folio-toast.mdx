@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ToastStories from './folio-toast.stories';
+
+<Meta of={ToastStories} />
+
+# Toast
+
+`<folio-toast>` affiche une confirmation brève et non bloquante en bas de l'écran, puis disparaît. Couleurs inversées, position fixe bas-centre. Un toast n'exige jamais de réponse — pour ça, un dialogue.
+
+<Canvas of={ToastStories.Demo} />
+
+## When to use
+
+- Confirmer une action silencieuse (copie, sauvegarde).
+- Signaler une redirection (soft-404 → accueil).
+
+## When not to use
+
+- Erreur exigeant une action → message inline persistant.
+- Information importante : un toast disparaît, il ne doit rien porter d'essentiel.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | `''` | Texte du toast (utilisé si `show()` est appelé sans argument et sans contenu slotté). |
+| `duration` | `duration` | `number` | `4000` | Millisecondes avant auto-fermeture. `0` = pas d'auto-fermeture. |
+| `open` | `open` | `boolean` | `false` | Visibilité. Piloté par `show()`/`hide()` ou directement. |
+
+## Methods
+
+| Method | Description |
+| --- | --- |
+| `show(message?)` | Affiche le toast, remplace le message si fourni, (re)lance le timer. |
+| `hide()` | Masque le toast et émet `folio-dismiss`. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Message riche (prioritaire sur `message`). |
+
+## Events
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `folio-dismiss` | — | Émis à la fermeture (timeout ou `hide()`). |
+
+## Examples
+
+### Open state
+
+<Canvas of={ToastStories.OpenState} />
+
+## Accessibility
+
+- `role="status"` + `aria-live="polite"` : annoncé sans interrompre la lecture en cours.
+- `pointer-events: none` sur l'hôte : le toast ne bloque jamais un clic.
+- 4 secondes par défaut — suffisant pour une phrase courte ; rallonger si le message dépasse ~8 mots.
+
+## Related
+
+- [`folio-tooltip`](?path=/docs/components-tooltip--docs) — information contextuelle au survol

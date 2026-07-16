@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Colors" />
+
+export const Swatch = ({ token, note }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '6px 0' }}>
+    <div
+      style={{
+        width: 56,
+        height: 32,
+        flex: 'none',
+        background: `var(${token})`,
+        border: '1px solid var(--folio-color-border)',
+      }}
+    />
+    <code style={{ fontSize: 12 }}>{token}</code>
+    <span style={{ fontSize: 12, opacity: 0.6 }}>{note}</span>
+  </div>
+);
+
+# Colors
+
+La palette est sémantique : les composants ne connaissent jamais une valeur hexadécimale, seulement un rôle. Chaque token existe en dark (défaut) et light — basculez le thème dans la toolbar pour voir les swatches changer. Source de vérité : `tokens/color.dark.json` et `tokens/color.light.json` (format DTCG).
+
+## Fond
+
+<Swatch token="--folio-color-bg" note="Fond de page" />
+<Swatch token="--folio-color-bg-elevated" note="Surfaces surélevées, hover" />
+<Swatch token="--folio-color-bg-card" note="Cartes" />
+
+## Texte
+
+<Swatch token="--folio-color-text" note="Texte principal" />
+<Swatch token="--folio-color-text-muted" note="Texte secondaire (50%)" />
+<Swatch token="--folio-color-text-dim" note="Texte tertiaire / désactivé (24%)" />
+
+## Bordures
+
+<Swatch token="--folio-color-border" note="Bordure par défaut (12%)" />
+<Swatch token="--folio-color-border-hover" note="Bordure survolée / emphase (26%)" />
+
+## Accent
+
+<Swatch token="--folio-color-accent" note="Emphase interactive" />
+<Swatch token="--folio-color-accent-strong" note="Accent renforcé (hover)" />
+<Swatch token="--folio-color-accent-soft" note="Teinte accent (fonds)" />
+
+## Statut
+
+Quatre tons sémantiques, chacun avec sa teinte `-soft` pour les fonds de badge. En light, les tons sont assombris pour garder un contraste ≥ 4.5:1.
+
+<Swatch token="--folio-color-status-ok" note="Positif" />
+<Swatch token="--folio-color-status-warn" note="Vigilance" />
+<Swatch token="--folio-color-status-danger" note="Critique" />
+<Swatch token="--folio-color-status-info" note="Information" />
+
+## Surfaces translucides & encre
+
+<Swatch token="--folio-color-surface" note="Overlay translucide" />
+<Swatch token="--folio-color-surface-border" note="Bordure sur translucide" />
+<Swatch token="--folio-color-ink" note="Encre décorative (10%)" />
+<Swatch token="--folio-color-ink-strong" note="Encre renforcée (28%)" />
+
+## Usage
+
+- Ne jamais coder une couleur en dur dans un composant ou une page : si un rôle manque, ajouter un token.
+- `accent` est réservé à l'interaction et à l'emphase — pas de décoration gratuite.
+- La couleur ne porte jamais seule une information (statut → toujours un texte).

@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Motion" />
+
+# Motion
+
+Le mouvement est sobre et fonctionnel : il confirme une interaction, il ne décore pas. Deux courbes, trois durées.
+
+## Tokens
+
+| Token | Valeur | Usage |
+| --- | --- | --- |
+| `--folio-motion-ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` | Courbe par défaut — départ vif, arrivée douce |
+| `--folio-motion-ease-reveal` | `cubic-bezier(0.01, 0.73, 0.42, 0.99)` | Entrées / révélations de contenu |
+| `--folio-motion-duration-fast` | `250ms` | Hover, petits changements d'état |
+| `--folio-motion-duration-base` | `400ms` | Transitions, révélations |
+| `--folio-motion-duration-slow` | `600ms` | Transitions de page |
+
+## Raccourcis composés
+
+```css
+transition: color var(--folio-transition-fast);   /* 250ms ease-out-expo */
+transition: opacity var(--folio-transition);      /* 400ms ease-out-expo */
+```
+
+## Règles
+
+- **Propriétés animées** : `opacity`, `transform`, `color`, `background`, `border-color` uniquement — jamais `width`/`height`/`top` (la hauteur des accordéons passe par `grid-template-rows`, composée par le navigateur).
+- **Amplitude** : translations ≤ 8px, scale ≤ 1.02. Le mouvement se perçoit, il ne se regarde pas.
+- **`prefers-reduced-motion: reduce`** : chaque composant réduit ses transitions à 0.01ms. Tester chaque nouvelle animation avec ce réglage.
+- Pas d'animation en boucle, pas de parallaxe, pas d'auto-play.

@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TagStories from './folio-tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+`<folio-tag>` étiquette un contenu avec une catégorie ou un attribut — mono, majuscules, bordure fine. C'est le traitement signature des métadonnées de case study (disciplines, outils, contexte). Un tag est **statique** : aucun état hover, aucune interaction.
+
+<Canvas of={TagStories.Default} />
+
+## When to use
+
+- Métadonnées d'un projet : discipline, outil, secteur.
+- Toute annotation catégorielle courte (1–3 mots).
+
+## When not to use
+
+- Pour filtrer une liste → `folio-chip` (interactif, sélectionnable).
+- Pour un statut ou une alerte → `folio-badge` (tons sémantiques).
+
+## Properties
+
+Aucune propriété. Le contenu passe par le slot.
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le texte du tag. 1 à 3 mots ; le style force les majuscules (`text-transform: uppercase`). |
+
+## Examples
+
+### Group
+
+Grouper les tags avec un `gap` de `--folio-space-2` (8px) et `flex-wrap`.
+
+<Canvas of={TagStories.Group} />
+
+## Accessibility
+
+- Rendu comme un `<span>` : lu naturellement dans le flux du texte, aucun rôle interactif annoncé.
+- La mise en majuscules est purement CSS : écrire le contenu en casse normale pour une vocalisation correcte.
+- Contraste : `text-muted` sur fond page ≥ 4.5:1 dans les deux thèmes.
+
+## Related
+
+- [`folio-chip`](?path=/docs/components-chip--docs) — le pendant interactif
+- [`folio-badge`](?path=/docs/components-badge--docs) — statut sémantique

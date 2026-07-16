@@ -1,0 +1,29 @@
+{
+  "$description": "Folio DS color tokens — light theme overrides (html[data-theme=\"light\"]). Status colors darkened for contrast on light backgrounds.",
+  "color": {
+    "bg": { "$type": "color", "$value": "#FEFEFB" },
+    "bg-elevated": { "$type": "color", "$value": "#f4f3ee" },
+    "bg-card": { "$type": "color", "$value": "#efeee9" },
+    "text": { "$type": "color", "$value": "#2b2c2b" },
+    "text-muted": { "$type": "color", "$value": "rgba(43, 44, 43, 0.55)" },
+    "text-dim": { "$type": "color", "$value": "rgba(43, 44, 43, 0.3)" },
+    "border": { "$type": "color", "$value": "rgba(43, 44, 43, 0.14)" },
+    "border-hover": { "$type": "color", "$value": "rgba(43, 44, 43, 0.32)" },
+    "accent": { "$type": "color", "$value": "#3e5c7e" },
+    "accent-strong": { "$type": "color", "$value": "#2f4a68" },
+    "accent-soft": { "$type": "color", "$value": "rgba(62, 92, 126, 0.1)" },
+    "surface": { "$type": "color", "$value": "rgba(254, 254, 251, 0.85)" },
+    "surface-light": { "$type": "color", "$value": "rgba(254, 254, 251, 0.7)" },
+    "surface-border": { "$type": "color", "$value": "rgba(43, 44, 43, 0.1)" },
+    "ink": { "$type": "color", "$value": "rgba(43, 44, 43, 0.12)" },
+    "ink-strong": { "$type": "color", "$value": "rgba(43, 44, 43, 0.34)" },
+    "status-ok": { "$type": "color", "$value": "#2e7d4b" },
+    "status-ok-soft": { "$type": "color", "$value": "rgba(46, 125, 75, 0.12)" },
+    "status-warn": { "$type": "color", "$value": "#9a6a00" },
+    "status-warn-soft": { "$type": "color", "$value": "rgba(154, 106, 0, 0.12)" },
+    "status-danger": { "$type": "color", "$value": "#c03434" },
+    "status-danger-soft": { "$type": "color", "$value": "rgba(192, 52, 52, 0.12)" },
+    "status-info": { "$type": "color", "$value": "#4a4ad6" },
+    "status-info-soft": { "$type": "color", "$value": "rgba(74, 74, 214, 0.12)" }
+  }
+}

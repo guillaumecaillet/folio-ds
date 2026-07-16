@@ -1,0 +1,82 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ChipStories from './folio-chip.stories';
+
+<Meta of={ChipStories} />
+
+# Chip
+
+`<folio-chip>` est un filtre activable. Sélectionné, il inverse ses couleurs (texte sur fond pleins). Le chip gère son propre état `selected` et notifie via `folio-change` ; la logique de groupe (sélection exclusive, « Tous ») reste à la charge du consommateur.
+
+<Canvas of={ChipStories.Default} />
+<Controls of={ChipStories.Default} />
+
+## When to use
+
+- Barre de filtres au-dessus d'une liste (projets par discipline).
+- Sélection multiple d'options courtes.
+
+## When not to use
+
+- Étiquette purement informative → `folio-tag`.
+- Action unique qui ne représente pas un état → `folio-button`.
+
+## Properties
+
+| Property | Attribute | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `selected` | `selected` | `boolean` | `false` | État sélectionné : couleurs inversées (`bg` sur `text`). Reflété en attribut. |
+| `disabled` | `disabled` | `boolean` | `false` | Désactive l'interaction et passe le texte en `text-dim`. |
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| _(default)_ | Le libellé du filtre. |
+
+## Events
+
+| Event | Detail | Description |
+| --- | --- | --- |
+| `folio-change` | `{ selected: boolean }` | Émis à chaque bascule, après mise à jour de l'état. Bulle et traverse le shadow DOM (`composed`). |
+
+## CSS parts
+
+| Part | Description |
+| --- | --- |
+| `button` | Le `<button>` interne. |
+
+## Examples
+
+### Selected
+
+<Canvas of={ChipStories.Selected} />
+
+### Disabled
+
+<Canvas of={ChipStories.Disabled} />
+
+### Filter bar
+
+Sélection exclusive côté consommateur : écouter `folio-change` sur le conteneur et désélectionner les frères.
+
+<Canvas of={ChipStories.FilterBar} />
+
+```js
+filterBar.addEventListener('folio-change', (e) => {
+  if (!e.detail.selected) return;
+  for (const chip of filterBar.querySelectorAll('folio-chip')) {
+    if (chip !== e.target) chip.selected = false;
+  }
+});
+```
+
+## Accessibility
+
+- `<button>` natif avec `aria-pressed` reflétant `selected` : annoncé « bouton, activé/désactivé ».
+- Bascule à la souris, à Entrée et à Espace.
+- L'état sélectionné ne repose pas que sur la couleur : `aria-pressed` porte l'information pour les technologies d'assistance.
+
+## Related
+
+- [`folio-tag`](?path=/docs/components-tag--docs) — étiquette statique
+- [`folio-button`](?path=/docs/components-button--docs) — action
