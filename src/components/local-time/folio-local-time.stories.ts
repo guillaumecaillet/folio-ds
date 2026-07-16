@@ -5,6 +5,8 @@ import './folio-local-time.js';
 const meta: Meta = {
   title: 'Components/LocalTime',
   component: 'folio-local-time',
+  // L'horloge affiche l'heure réelle → snapshot différent à chaque build (faux positif).
+  parameters: { chromatic: { disableSnapshot: true } },
   render: (args) => html`
     <folio-local-time timezone=${args.timezone} label=${args.label}></folio-local-time>
   `,
