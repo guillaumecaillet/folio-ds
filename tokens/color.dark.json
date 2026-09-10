@@ -1,5 +1,5 @@
 {
-  "$description": "Folio DS color tokens — dark theme (default). Mirrors portfolio :root plus new status tokens.",
+  "$description": "Folio DS color tokens — dark theme (default). Reconciled 2026-09-10 against the live portfolio :root.",
   "color": {
     "bg": { "$type": "color", "$value": "#1b1c1e", "$description": "Page background" },
     "bg-elevated": { "$type": "color", "$value": "#232427", "$description": "Elevated surfaces (hover states, raised panels)" },
@@ -24,6 +24,13 @@
     "status-danger": { "$type": "color", "$value": "#e85050", "$description": "Critical / error" },
     "status-danger-soft": { "$type": "color", "$value": "rgba(232, 80, 80, 0.14)", "$description": "Critical tint background" },
     "status-info": { "$type": "color", "$value": "#8888ff", "$description": "Informational / neutral highlight" },
-    "status-info-soft": { "$type": "color", "$value": "rgba(136, 136, 255, 0.14)", "$description": "Informational tint background" }
+    "status-info-soft": { "$type": "color", "$value": "rgba(136, 136, 255, 0.14)", "$description": "Informational tint background" },
+    "cta": { "$type": "color", "$value": "#3566b3", "$description": "Primary CTA fill. Deliberately NOT theme-swapped — the same blue reads in dark and light so the CTA stays recognisable. Bright enough to register as blue, dark enough to hold white label text at ~5.5:1." },
+    "cta-hot": { "$type": "color", "$value": "#4478c4", "$description": "Primary CTA fill on hover" },
+    "cta-ink": { "$type": "color", "$value": "#ffffff", "$description": "Label colour on a CTA fill" },
+    "key": { "$type": "color", "$value": "#e0ac4e", "$description": "Key-project gold. Warm end of the process stream (the \"Ship\" pixels) and the KEY badge, so it cuts through the blue." },
+    "key-hot": { "$type": "color", "$value": "#eec26d", "$description": "Key gold on hover" },
+    "key-ink": { "$type": "color", "$value": "#e0ac4e", "$description": "Key gold as text. Darkened in the light theme to stay legible." },
+    "glow": { "$type": "color", "$value": "transparent", "$description": "Row hover wash. Transparent in both themes today — kept as a token so the effect can be reintroduced from one place." }
   }
 }

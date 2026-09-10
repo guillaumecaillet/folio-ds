@@ -43,7 +43,7 @@ export class FolioProjectRow extends LitElement {
       a {
         display: flex;
         align-items: baseline;
-        gap: var(--folio-space-5);
+        gap: var(--folio-space-6);
         padding: var(--folio-space-4) var(--folio-space-2);
         text-decoration: none;
         font-family: var(--folio-font-family-sans);
@@ -65,7 +65,7 @@ export class FolioProjectRow extends LitElement {
         transition: color var(--folio-transition-fast);
       }
       .company {
-        font-size: var(--folio-text-caption);
+        font-size: var(--folio-text-small);
         color: var(--folio-project-row-company, var(--folio-color-text-muted));
       }
       .kind {

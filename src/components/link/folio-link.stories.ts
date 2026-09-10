@@ -24,7 +24,7 @@ export const Inline: Story = {};
 
 export const Nav: Story = {
   render: () => html`
-    <nav style="display:flex; gap: var(--folio-space-7);">
+    <nav style="display:flex; gap: var(--folio-space-8);">
       <folio-link variant="nav" href="#" active>Projets</folio-link>
       <folio-link variant="nav" href="#">Qui suis-je</folio-link>
       <folio-link variant="nav" href="#">Contact</folio-link>

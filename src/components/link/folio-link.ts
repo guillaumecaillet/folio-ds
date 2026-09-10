@@ -43,7 +43,7 @@ export class FolioLink extends LitElement {
 
       /* nav */
       :host([variant='nav']) a {
-        font-size: var(--folio-text-small);
+        font-size: var(--folio-text-ui);
         color: var(--folio-color-text-muted);
         letter-spacing: 0.01em;
       }
@@ -79,7 +79,7 @@ export class FolioLink extends LitElement {
 
       /* back */
       :host([variant='back']) a {
-        font-size: var(--folio-text-caption);
+        font-size: var(--folio-text-small);
         color: var(--folio-color-text-muted);
       }
       :host([variant='back']) a:hover {

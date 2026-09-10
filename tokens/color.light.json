@@ -24,6 +24,13 @@
     "status-danger": { "$type": "color", "$value": "#c03434" },
     "status-danger-soft": { "$type": "color", "$value": "rgba(192, 52, 52, 0.12)" },
     "status-info": { "$type": "color", "$value": "#4a4ad6" },
-    "status-info-soft": { "$type": "color", "$value": "rgba(74, 74, 214, 0.12)" }
+    "status-info-soft": { "$type": "color", "$value": "rgba(74, 74, 214, 0.12)" },
+    "cta": { "$type": "color", "$value": "#3566b3", "$description": "Intentionally identical to dark — the CTA blue is fixed across themes." },
+    "cta-hot": { "$type": "color", "$value": "#4478c4", "$description": "Intentionally identical to dark." },
+    "cta-ink": { "$type": "color", "$value": "#ffffff", "$description": "Intentionally identical to dark." },
+    "key": { "$type": "color", "$value": "#e0ac4e", "$description": "Intentionally identical to dark — the gold fill is fixed across themes." },
+    "key-hot": { "$type": "color", "$value": "#eec26d", "$description": "Intentionally identical to dark." },
+    "key-ink": { "$type": "color", "$value": "#8a6320", "$description": "Darkened gold: #e0ac4e fails contrast on the light background." },
+    "glow": { "$type": "color", "$value": "transparent" }
   }
 }

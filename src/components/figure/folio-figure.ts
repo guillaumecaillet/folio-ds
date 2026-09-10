@@ -63,7 +63,7 @@ export class FolioFigure extends LitElement {
       }
       figcaption {
         padding-top: var(--folio-space-2);
-        font-size: var(--folio-text-caption);
+        font-size: var(--folio-text-small);
         color: var(--folio-color-text-muted);
         line-height: 1.5;
       }

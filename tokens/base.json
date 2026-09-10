@@ -1,40 +1,56 @@
 {
-  "$description": "Folio DS theme-independent tokens: typography, spacing, motion, radius, z-index.",
+  "$description": "Folio DS theme-independent tokens: typography, spacing, motion, radius, z-index. Reconciled 2026-09-10 against the live portfolio (guillaumecaillet.com), which is the reference for the v0.2.0 release.",
   "font": {
-    "family-sans": { "$type": "fontFamily", "$value": ["Inter", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"], "$description": "Primary typeface" },
-    "family-mono": { "$type": "fontFamily", "$value": ["IBM Plex Mono", "monospace"], "$description": "Technical labels, data, numerals" }
+    "family-sans": { "$type": "fontFamily", "$value": ["Space Grotesk", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"], "$description": "Primary typeface. Replaced Inter in v0.2.0 to match the live site." },
+    "family-mono": { "$type": "fontFamily", "$value": ["IBM Plex Mono", "monospace"], "$description": "Technical labels, data, tabular numerals" },
+    "family-display": { "$type": "fontFamily", "$value": ["Pixelify Sans", "Space Grotesk", "sans-serif"], "$description": "Pixel display face, added in v0.2.0. Section titles and the boot loader only — never body copy." }
   },
   "text": {
-    "hero": { "$type": "dimension", "$value": "clamp(2.2rem, 5vw, 3.8rem)", "$description": "Hero display size" },
-    "title": { "$type": "dimension", "$value": "clamp(2rem, 4vw, 3rem)", "$description": "Page / section title size" },
-    "subtitle": { "$type": "dimension", "$value": "1.125rem", "$description": "Lead paragraph size" },
-    "body": { "$type": "dimension", "$value": "0.95rem", "$description": "Body copy size" },
-    "small": { "$type": "dimension", "$value": "0.875rem", "$description": "UI text size (nav, buttons)" },
-    "caption": { "$type": "dimension", "$value": "0.8125rem", "$description": "Captions, secondary UI" },
+    "hero": { "$type": "dimension", "$value": "clamp(2.4rem, 5.5vw, 4rem)", "$description": "Landing hero" },
+    "title": { "$type": "dimension", "$value": "clamp(2rem, 4vw, 3rem)", "$description": "Page / case-study title" },
+    "heading": { "$type": "dimension", "$value": "1.75rem", "$description": "Section heading" },
+    "stat": { "$type": "dimension", "$value": "1.35rem", "$description": "Stat and metric values (mono, tabular)" },
+    "lead": { "$type": "dimension", "$value": "1.25rem", "$description": "Lead paragraph, accordion toggle" },
+    "subtitle": { "$type": "dimension", "$value": "1.125rem", "$description": "Subtitle, intro copy" },
+    "body-lg": { "$type": "dimension", "$value": "1.0625rem", "$description": "Long-form case-study body" },
+    "body": { "$type": "dimension", "$value": "0.9375rem", "$description": "Default body copy" },
+    "ui": { "$type": "dimension", "$value": "0.875rem", "$description": "Buttons, nav, interactive labels" },
+    "small": { "$type": "dimension", "$value": "0.8125rem", "$description": "Captions, figure captions" },
+    "caption": { "$type": "dimension", "$value": "0.75rem", "$description": "Chips, eyebrow labels, secondary UI" },
     "label": { "$type": "dimension", "$value": "0.6875rem", "$description": "Mono uppercase labels, tags" },
-    "micro": { "$type": "dimension", "$value": "0.62rem", "$description": "Smallest technical annotations" }
+    "micro": { "$type": "dimension", "$value": "0.625rem", "$description": "Badges, smallest technical annotations" }
   },
   "space": {
     "1": { "$type": "dimension", "$value": "0.25rem", "$description": "4px" },
     "2": { "$type": "dimension", "$value": "0.5rem", "$description": "8px" },
     "3": { "$type": "dimension", "$value": "0.75rem", "$description": "12px" },
     "4": { "$type": "dimension", "$value": "1rem", "$description": "16px" },
-    "5": { "$type": "dimension", "$value": "1.5rem", "$description": "24px" },
-    "6": { "$type": "dimension", "$value": "2rem", "$description": "32px" },
-    "7": { "$type": "dimension", "$value": "2.5rem", "$description": "40px" },
-    "8": { "$type": "dimension", "$value": "3rem", "$description": "48px" },
-    "9": { "$type": "dimension", "$value": "4rem", "$description": "64px" },
-    "10": { "$type": "dimension", "$value": "6rem", "$description": "96px" }
+    "5": { "$type": "dimension", "$value": "1.25rem", "$description": "20px" },
+    "6": { "$type": "dimension", "$value": "1.5rem", "$description": "24px" },
+    "7": { "$type": "dimension", "$value": "2rem", "$description": "32px" },
+    "8": { "$type": "dimension", "$value": "2.5rem", "$description": "40px" },
+    "9": { "$type": "dimension", "$value": "3rem", "$description": "48px" },
+    "10": { "$type": "dimension", "$value": "3.5rem", "$description": "56px" },
+    "11": { "$type": "dimension", "$value": "4rem", "$description": "64px" },
+    "12": { "$type": "dimension", "$value": "5rem", "$description": "80px" },
+    "13": { "$type": "dimension", "$value": "6rem", "$description": "96px" }
   },
   "radius": {
-    "none": { "$type": "dimension", "$value": "0", "$description": "The system's only radius — sharp corners are part of the identity" }
+    "none": { "$type": "dimension", "$value": "0", "$description": "The system's only radius — sharp corners are part of the identity" },
+    "full": { "$type": "dimension", "$value": "50%", "$description": "Circular. Reserved for status dots and the nav logo mark." }
+  },
+  "pixel": {
+    "notch": { "$type": "dimension", "$value": "10px", "$description": "Outer step of the pixel-corner clip-path on primary CTAs" },
+    "notch-inner": { "$type": "dimension", "$value": "5px", "$description": "Inner step of the pixel-corner clip-path" }
   },
   "motion": {
     "ease-out-expo": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1], "$description": "Primary easing" },
     "ease-reveal": { "$type": "cubicBezier", "$value": [0.01, 0.73, 0.42, 0.99], "$description": "Entrance/reveal easing" },
+    "duration-instant": { "$type": "duration", "$value": "200ms", "$description": "Tooltips, micro-feedback" },
     "duration-fast": { "$type": "duration", "$value": "250ms", "$description": "Hover, small state changes" },
     "duration-base": { "$type": "duration", "$value": "400ms", "$description": "Transitions, reveals" },
-    "duration-slow": { "$type": "duration", "$value": "600ms", "$description": "Page-level transitions" }
+    "duration-slow": { "$type": "duration", "$value": "600ms", "$description": "Page-level transitions" },
+    "duration-reveal": { "$type": "duration", "$value": "800ms", "$description": "Scroll-reveal entrances" }
   },
   "z": {
     "base": { "$type": "number", "$value": 0 },
@@ -42,7 +58,8 @@
     "toast": { "$type": "number", "$value": 100 },
     "nav": { "$type": "number", "$value": 500 },
     "tooltip": { "$type": "number", "$value": 600 },
-    "overlay": { "$type": "number", "$value": 700 }
+    "overlay": { "$type": "number", "$value": 700 },
+    "lightbox": { "$type": "number", "$value": 9999, "$description": "Full-screen image viewer, above everything" }
   },
   "breakpoint": {
     "mobile": { "$type": "dimension", "$value": "768px", "$description": "Primary breakpoint" }

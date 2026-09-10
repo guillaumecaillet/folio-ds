@@ -8,21 +8,33 @@ const meta: Meta = {
   render: (args) => html`
     <folio-button
       variant=${args.variant}
+      ?pixel=${args.pixel}
       ?disabled=${args.disabled}
       href=${args.href || undefined}
       >${args.label}</folio-button
     >
   `,
   argTypes: {
-    variant: { control: 'radio', options: ['card', 'ghost'] },
+    variant: { control: 'radio', options: ['primary', 'card', 'ghost'] },
+    pixel: { control: 'boolean' },
     disabled: { control: 'boolean' },
     href: { control: 'text' },
   },
-  args: { variant: 'card', disabled: false, label: 'Voir le projet' },
+  args: { variant: 'card', pixel: false, disabled: false, label: 'Voir le projet' },
 };
 export default meta;
 
 type Story = StoryObj;
+
+export const Primary: Story = {
+  args: { variant: 'primary', label: 'Me contacter' },
+};
+
+/** The site's headline CTA: filled blue with notched corners. */
+export const PrimaryPixel: Story = {
+  name: 'Primary / pixel',
+  args: { variant: 'primary', pixel: true, label: 'Me contacter' },
+};
 
 export const Card: Story = {};
 
@@ -52,7 +64,8 @@ export const Disabled: Story = {
 
 export const Group: Story = {
   render: () => html`
-    <div style="display:flex; gap: var(--folio-space-3);">
+    <div style="display:flex; gap: var(--folio-space-3); align-items: center;">
+      <folio-button variant="primary" pixel>Me contacter</folio-button>
       <folio-button>LinkedIn</folio-button>
       <folio-button>Lire mon CV</folio-button>
       <folio-button variant="ghost">Plus tard</folio-button>

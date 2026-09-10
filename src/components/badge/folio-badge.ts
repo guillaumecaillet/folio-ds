@@ -5,14 +5,16 @@ import { monoLabel } from '../../styles/shared.js';
 /**
  * Badges communicate status or draw attention to a small piece of
  * metadata. The tone maps to the semantic status tokens; `accent`
- * is the neutral highlight.
+ * is the neutral highlight; `key` is the gold reserved for flagging
+ * key projects, and is the one tone that also carries a border.
  *
  * @slot - The badge text (one or two words).
  */
 @customElement('folio-badge')
 export class FolioBadge extends LitElement {
   /** Semantic tone of the badge. */
-  @property({ reflect: true }) tone: 'accent' | 'ok' | 'warn' | 'danger' | 'info' = 'accent';
+  @property({ reflect: true }) tone: 'accent' | 'ok' | 'warn' | 'danger' | 'info' | 'key' =
+    'accent';
 
   static styles = [
     monoLabel,
@@ -26,9 +28,10 @@ export class FolioBadge extends LitElement {
         height: 24px;
         padding-inline: var(--folio-space-2);
         border-radius: var(--folio-radius-none);
-        font-size: 0.62rem;
+        font-size: var(--folio-text-micro);
         font-weight: 700;
         letter-spacing: 0.08em;
+        line-height: 1;
         color: var(--folio-color-accent);
         background: var(--folio-color-accent-soft);
       }
@@ -47,6 +50,14 @@ export class FolioBadge extends LitElement {
       :host([tone='info']) .badge {
         color: var(--folio-color-status-info);
         background: var(--folio-color-status-info-soft);
+      }
+      /* Key projects. Tinted rather than filled so it reads as a marker,
+         not a status, and keeps its weight against a page of blue. */
+      :host([tone='key']) .badge {
+        color: var(--folio-color-key-ink);
+        background: color-mix(in srgb, var(--folio-color-key) 13%, transparent);
+        border: 1px solid color-mix(in srgb, var(--folio-color-key) 55%, transparent);
+        letter-spacing: 0.04em;
       }
     `,
   ];

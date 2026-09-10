@@ -31,7 +31,7 @@ export class FolioLightbox extends LitElement {
         z-index: var(--folio-z-overlay);
         display: grid;
         place-items: center;
-        padding: var(--folio-space-6);
+        padding: var(--folio-space-7);
         background: color-mix(in srgb, var(--folio-color-bg) 88%, transparent);
         opacity: 0;
         visibility: hidden;
@@ -59,8 +59,8 @@ export class FolioLightbox extends LitElement {
       }
       .close {
         position: absolute;
-        top: var(--folio-space-5);
-        right: var(--folio-space-5);
+        top: var(--folio-space-6);
+        right: var(--folio-space-6);
         width: 40px;
         height: 40px;
         display: grid;

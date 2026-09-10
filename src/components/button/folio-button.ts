@@ -3,9 +3,16 @@ import { customElement, property } from 'lit/decorators.js';
 import { focusRing, reducedMotion } from '../../styles/shared.js';
 
 /**
- * Buttons trigger actions or navigate. `card` is the primary treatment
- * (bordered, raised on hover); `ghost` is the quiet, borderless treatment
- * for secondary actions. When `href` is set the button renders as a link.
+ * Buttons trigger actions or navigate.
+ *
+ * - `primary` — filled with the fixed CTA blue. One per view: "Me contacter",
+ *   "Voir le projet". The blue does not swap with the theme, so the CTA reads
+ *   the same in dark and light.
+ * - `card` — bordered, raised on hover. The default, for everything else.
+ * - `ghost` — quiet and borderless, for tertiary actions.
+ *
+ * Set `pixel` on a `primary` button for the notched corners used on the
+ * site's headline CTAs. When `href` is set the button renders as a link.
  *
  * @slot - The button label.
  * @slot icon - Optional leading icon (16×16 SVG recommended).
@@ -15,7 +22,10 @@ import { focusRing, reducedMotion } from '../../styles/shared.js';
 @customElement('folio-button')
 export class FolioButton extends LitElement {
   /** Visual treatment of the button. */
-  @property({ reflect: true }) variant: 'card' | 'ghost' = 'card';
+  @property({ reflect: true }) variant: 'primary' | 'card' | 'ghost' = 'card';
+
+  /** Notched pixel corners. Intended for `primary`; ignored on `ghost`. */
+  @property({ type: Boolean, reflect: true }) pixel = false;
 
   /** When set, renders an anchor that navigates to this URL. */
   @property() href?: string;
@@ -40,9 +50,9 @@ export class FolioButton extends LitElement {
         display: inline-flex;
         align-items: center;
         gap: var(--folio-space-2);
-        padding: var(--folio-space-2) 14px;
+        padding: var(--folio-space-2) var(--folio-space-3);
         font-family: var(--folio-font-family-sans);
-        font-size: var(--folio-text-caption);
+        font-size: var(--folio-text-small);
         font-weight: 500;
         letter-spacing: -0.01em;
         color: var(--folio-color-text);
@@ -60,6 +70,38 @@ export class FolioButton extends LitElement {
         background: var(--folio-color-bg-elevated);
         transform: translateY(-1px);
       }
+      /* Primary: the one filled treatment. The blue is fixed across themes
+         on purpose — see --folio-color-cta. */
+      :host([variant='primary']) .btn {
+        padding: var(--folio-space-3) var(--folio-space-6);
+        font-size: var(--folio-text-ui);
+        color: var(--folio-color-cta-ink);
+        background: var(--folio-color-cta);
+        border-color: var(--folio-color-cta);
+      }
+      :host([variant='primary']) .btn:hover {
+        background: var(--folio-color-cta-hot);
+        border-color: var(--folio-color-cta-hot);
+        transform: translateY(-2px);
+      }
+      /* Notched corners. Cut with clip-path so the shape survives any
+         background; the border is drawn by the fill, not by the border box. */
+      :host([variant='primary'][pixel]) .btn {
+        --n: var(--folio-pixel-notch);
+        --i: var(--folio-pixel-notch-inner);
+        clip-path: polygon(
+          var(--n) 0, calc(100% - var(--n)) 0,
+          calc(100% - var(--n)) var(--i), calc(100% - var(--i)) var(--i),
+          calc(100% - var(--i)) var(--n), 100% var(--n),
+          100% calc(100% - var(--n)), calc(100% - var(--i)) calc(100% - var(--n)),
+          calc(100% - var(--i)) calc(100% - var(--i)), calc(100% - var(--n)) calc(100% - var(--i)),
+          calc(100% - var(--n)) 100%, var(--n) 100%,
+          var(--n) calc(100% - var(--i)), var(--i) calc(100% - var(--i)),
+          var(--i) calc(100% - var(--n)), 0 calc(100% - var(--n)),
+          0 var(--n), var(--i) var(--n),
+          var(--i) var(--i), var(--n) var(--i)
+        );
+      }
       :host([variant='ghost']) .btn {
         background: transparent;
         border-color: transparent;
@@ -70,6 +112,12 @@ export class FolioButton extends LitElement {
         color: var(--folio-color-text);
         background: transparent;
         transform: none;
+      }
+      /* A disabled primary must stop reading as the page's one live action,
+         so it drops the fill entirely rather than just dimming its label. */
+      :host([variant='primary'][disabled]) .btn {
+        background: var(--folio-color-bg-card);
+        border-color: var(--folio-color-border);
       }
       :host([disabled]) .btn {
         color: var(--folio-color-text-dim);

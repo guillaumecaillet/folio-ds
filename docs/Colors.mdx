@@ -54,12 +54,27 @@ Quatre tons sémantiques, chacun avec sa teinte `-soft` pour les fonds de badge.
 <Swatch token="--folio-color-status-danger" note="Critique" />
 <Swatch token="--folio-color-status-info" note="Information" />
 
+## Action (fixes, hors thème)
+
+Deux couleurs échappent délibérément à la bascule dark/light : elles gardent la même valeur dans les deux thèmes pour rester reconnaissables.
+
+<Swatch token="--folio-color-cta" note="Remplissage du CTA principal — blanc à ~5.5:1 dessus" />
+<Swatch token="--folio-color-cta-hot" note="CTA survolé" />
+<Swatch token="--folio-color-key" note="Or des projets clés — tranche sur le bleu" />
+<Swatch token="--folio-color-key-hot" note="Or survolé" />
+<Swatch token="--folio-color-key-ink" note="Or en texte — assombri en light pour le contraste" />
+
+`key-ink` est la seule des cinq à basculer : `#e0ac4e` échoue au contraste sur fond clair, il devient `#8a6320` en light.
+
 ## Surfaces translucides & encre
 
 <Swatch token="--folio-color-surface" note="Overlay translucide" />
 <Swatch token="--folio-color-surface-border" note="Bordure sur translucide" />
 <Swatch token="--folio-color-ink" note="Encre décorative (10%)" />
 <Swatch token="--folio-color-ink-strong" note="Encre renforcée (28%)" />
+<Swatch token="--folio-color-glow" note="Lavis de survol des lignes — transparent aujourd'hui" />
+
+`glow` vaut `transparent` dans les deux thèmes : l'effet a été retiré du site mais le token reste, pour pouvoir le réintroduire depuis un seul endroit.
 
 ## Usage
 

@@ -28,16 +28,16 @@ export class FolioToast extends LitElement {
     css`
       :host {
         position: fixed;
-        bottom: var(--folio-space-6);
+        bottom: var(--folio-space-7);
         left: 50%;
         transform: translateX(-50%);
         z-index: var(--folio-z-toast);
         pointer-events: none;
       }
       .toast {
-        padding: var(--folio-space-3) var(--folio-space-5);
+        padding: var(--folio-space-3) var(--folio-space-6);
         font-family: var(--folio-font-family-sans);
-        font-size: var(--folio-text-caption);
+        font-size: var(--folio-text-small);
         font-weight: 500;
         color: var(--folio-color-bg);
         background: var(--folio-color-text);

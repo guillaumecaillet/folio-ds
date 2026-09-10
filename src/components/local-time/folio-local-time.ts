@@ -24,7 +24,7 @@ export class FolioLocalTime extends LitElement {
       align-items: baseline;
       gap: var(--folio-space-2);
       font-family: var(--folio-font-family-mono);
-      font-size: var(--folio-text-caption);
+      font-size: var(--folio-text-small);
       color: var(--folio-color-text-muted);
       font-variant-numeric: tabular-nums;
     }

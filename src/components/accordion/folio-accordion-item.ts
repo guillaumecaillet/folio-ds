@@ -91,7 +91,7 @@ export class FolioAccordionItem extends LitElement {
         overflow: hidden;
       }
       .panel-content {
-        padding: 0 0 var(--folio-space-5);
+        padding: 0 0 var(--folio-space-6);
         font-size: var(--folio-text-body);
         line-height: 1.65;
         color: var(--folio-color-text-muted);

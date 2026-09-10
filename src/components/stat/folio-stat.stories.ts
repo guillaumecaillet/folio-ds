@@ -23,7 +23,7 @@ export const Bar: Story = { args: { variant: 'bar' } };
 
 export const MetricsRow: Story = {
   render: () => html`
-    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--folio-space-6); max-width: 640px;">
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--folio-space-7); max-width: 640px;">
       <folio-stat variant="bar" value="-38%" label="Temps de saisie"></folio-stat>
       <folio-stat variant="bar" value="×2" label="Vitesse de livraison"></folio-stat>
       <folio-stat variant="bar" value="9" label="Équipes utilisatrices"></folio-stat>

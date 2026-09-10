@@ -4,25 +4,37 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Typography
 
-La hiérarchie typographique est la colonne vertébrale du système — c'est elle, pas la décoration, qui structure les pages. Deux familles :
+La hiérarchie typographique est la colonne vertébrale du système — c'est elle, pas la décoration, qui structure les pages. Trois familles :
 
-- **Inter** (`--folio-font-family-sans`) — tout le texte courant et l'UI, interlettrage -0.01em.
+- **Space Grotesk** (`--folio-font-family-sans`) — tout le texte courant et l'UI, interlettrage -0.01em.
 - **IBM Plex Mono** (`--folio-font-family-mono`) — les labels techniques, index, dates et chiffres, toujours en `tabular-nums` quand ils s'alignent.
+- **Pixelify Sans** (`--folio-font-family-display`) — titres de section et boot loader **uniquement**. Jamais de texte courant, jamais en dessous de `--folio-text-caption` (illisible).
 
-Les deux sont auto-hébergées (aucune requête tierce).
+Les trois sont auto-hébergées (aucune requête tierce).
+
+> **v0.2.0** — Space Grotesk remplace Inter, et Pixelify Sans entre dans le système. L'échelle passe de 8 à 13 pas pour couvrir les 34 tailles réellement employées sur le site.
 
 ## Échelle
 
 | Token | Valeur | Usage | Aperçu |
 | --- | --- | --- | --- |
-| `--folio-text-hero` | `clamp(2.2rem, 5vw, 3.8rem)` | Titre du hero | <span style={{fontSize:'var(--folio-text-hero)',fontWeight:600,letterSpacing:'-0.03em'}}>Aa</span> |
+| `--folio-text-hero` | `clamp(2.4rem, 5.5vw, 4rem)` | Titre du hero | <span style={{fontSize:'var(--folio-text-hero)',fontWeight:600,letterSpacing:'-0.03em'}}>Aa</span> |
 | `--folio-text-title` | `clamp(2rem, 4vw, 3rem)` | Titres de page / case study | <span style={{fontSize:'var(--folio-text-title)',fontWeight:600,letterSpacing:'-0.03em'}}>Aa</span> |
-| `--folio-text-subtitle` | `1.125rem` | Chapeau, paragraphe d'intro | <span style={{fontSize:'var(--folio-text-subtitle)'}}>Aa</span> |
-| `--folio-text-body` | `0.95rem` | Corps de texte (lh 1.65) | <span style={{fontSize:'var(--folio-text-body)'}}>Aa</span> |
-| `--folio-text-small` | `0.875rem` | UI (nav, boutons) | <span style={{fontSize:'var(--folio-text-small)'}}>Aa</span> |
-| `--folio-text-caption` | `0.8125rem` | Légendes, UI secondaire | <span style={{fontSize:'var(--folio-text-caption)'}}>Aa</span> |
+| `--folio-text-heading` | `1.75rem` | Titre de section | <span style={{fontSize:'var(--folio-text-heading)',fontWeight:600,letterSpacing:'-0.02em'}}>Aa</span> |
+| `--folio-text-stat` | `1.35rem` | Valeurs de stats et métriques (mono) | <span style={{fontFamily:'var(--folio-font-family-mono)',fontSize:'var(--folio-text-stat)',fontWeight:600}}>42</span> |
+| `--folio-text-lead` | `1.25rem` | Chapeau, toggle d'accordéon | <span style={{fontSize:'var(--folio-text-lead)'}}>Aa</span> |
+| `--folio-text-subtitle` | `1.125rem` | Sous-titre, intro | <span style={{fontSize:'var(--folio-text-subtitle)'}}>Aa</span> |
+| `--folio-text-body-lg` | `1.0625rem` | Corps long des case studies | <span style={{fontSize:'var(--folio-text-body-lg)'}}>Aa</span> |
+| `--folio-text-body` | `0.9375rem` | Corps de texte (lh 1.65) | <span style={{fontSize:'var(--folio-text-body)'}}>Aa</span> |
+| `--folio-text-ui` | `0.875rem` | UI (nav, boutons) | <span style={{fontSize:'var(--folio-text-ui)'}}>Aa</span> |
+| `--folio-text-small` | `0.8125rem` | Légendes de figures | <span style={{fontSize:'var(--folio-text-small)'}}>Aa</span> |
+| `--folio-text-caption` | `0.75rem` | Chips, eyebrows, UI secondaire | <span style={{fontSize:'var(--folio-text-caption)'}}>Aa</span> |
 | `--folio-text-label` | `0.6875rem` | Labels mono majuscules, tags | <span style={{fontFamily:'var(--folio-font-family-mono)',fontSize:'var(--folio-text-label)',textTransform:'uppercase',letterSpacing:'0.1em'}}>Aa</span> |
-| `--folio-text-micro` | `0.62rem` | Annotations techniques minimales | <span style={{fontFamily:'var(--folio-font-family-mono)',fontSize:'var(--folio-text-micro)'}}>Aa</span> |
+| `--folio-text-micro` | `0.625rem` | Badges, annotations minimales | <span style={{fontFamily:'var(--folio-font-family-mono)',fontSize:'var(--folio-text-micro)'}}>Aa</span> |
+
+### Renommages v0.2.0
+
+L'ancien `--folio-text-small` (0.875rem) est devenu `--folio-text-ui`, et l'ancien `--folio-text-caption` (0.8125rem) est devenu `--folio-text-small`. Les deux noms libérés reprennent la valeur du cran en dessous.
 
 ## Styles composés
 

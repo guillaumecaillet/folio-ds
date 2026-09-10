@@ -1,8 +1,10 @@
 # Folio DS
 
-Design system du portfolio de [Guillaume Caillet](https://www.guillaumecaillet.com) — direction Swiss design : grille stricte, hiérarchie typographique, blanc tournant, angles droits, zéro ornement.
+Design system du portfolio de [Guillaume Caillet](https://www.guillaumecaillet.com) — base Swiss design (grille stricte, hiérarchie typographique, blanc tournant, angles droits) avec un accent pixel assumé : Pixelify Sans sur les titres de section, coins crantés sur les CTA principaux.
 
 17 web components construits avec [Lit](https://lit.dev), thémés dark/light par CSS custom properties, documentés dans Storybook (docs style Polaris : propriétés, slots, événements, accessibilité).
+
+**Sens de la vérité.** La v0.2.0 a réaligné le système sur le site en ligne, qui avait divergé de deux mois. À partir de là, le sens s'inverse : **le fichier Figma redevient la source de vérité**, et le code s'y conforme. Voir [CHANGELOG.md](CHANGELOG.md).
 
 ## Structure
 
@@ -43,6 +45,7 @@ Button · Tag · Chip · Badge · Link · SectionTitle · ThemeToggle · LocalTi
 
 ## Roadmap
 
+- Adoption des composants par le portfolio (en cours — le site réimplémente encore les 17 en CSS)
 - Navigation et footer composés
 - i18n
-- Librairie Figma générée depuis `tokens/` (variables dark/light, text styles, composants)
+- Documentation des patterns `proto-*` (les prototypes interactifs des case studies), aujourd'hui hors système
