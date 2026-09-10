@@ -18,7 +18,7 @@
     "small": { "$type": "dimension", "$value": "0.8125rem", "$description": "Captions, figure captions" },
     "caption": { "$type": "dimension", "$value": "0.75rem", "$description": "Chips, eyebrow labels, secondary UI" },
     "label": { "$type": "dimension", "$value": "0.6875rem", "$description": "Mono uppercase labels, tags" },
-    "micro": { "$type": "dimension", "$value": "0.625rem", "$description": "Badges, smallest technical annotations" }
+    "micro": { "$type": "dimension", "$value": "0.58rem", "$description": "Badges, smallest technical annotations. 0.58rem is the live KEY-badge size; the neighbouring 0.6rem on project-company should converge here." }
   },
   "space": {
     "1": { "$type": "dimension", "$value": "0.25rem", "$description": "4px" },

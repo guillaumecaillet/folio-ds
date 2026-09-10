@@ -26,14 +26,31 @@ export default meta;
 
 type Story = StoryObj;
 
+const mailIcon = html`<svg
+  slot="icon"
+  width="14"
+  height="14"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  style="opacity: 0.85"
+>
+  <rect x="2" y="4" width="20" height="16" />
+  <path d="m2 6 10 7 10-7" />
+</svg>`;
+
 export const Primary: Story = {
-  args: { variant: 'primary', label: 'Me contacter' },
+  render: () => html`<folio-button variant="primary">${mailIcon}M'écrire</folio-button>`,
 };
 
-/** The site's headline CTA: filled blue with notched corners. */
+/**
+ * How the CTA actually ships: notched corners and a 14px leading icon.
+ * Every primary CTA on the site carries one.
+ */
 export const PrimaryPixel: Story = {
   name: 'Primary / pixel',
-  args: { variant: 'primary', pixel: true, label: 'Me contacter' },
+  render: () => html`<folio-button variant="primary" pixel>${mailIcon}M'écrire</folio-button>`,
 };
 
 export const Card: Story = {};

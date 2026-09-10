@@ -73,8 +73,12 @@ export class FolioButton extends LitElement {
       /* Primary: the one filled treatment. The blue is fixed across themes
          on purpose — see --folio-color-cta. */
       :host([variant='primary']) .btn {
-        padding: var(--folio-space-3) var(--folio-space-6);
+        /* 13px is the live value and is deliberately off the 4px scale: it is
+           what makes the CTA 46px tall. Horizontal padding is on-scale. */
+        padding: 13px var(--folio-space-6);
         font-size: var(--folio-text-ui);
+        /* The card variant tightens tracking; the CTA does not. */
+        letter-spacing: normal;
         color: var(--folio-color-cta-ink);
         background: var(--folio-color-cta);
         border-color: var(--folio-color-cta);
@@ -130,6 +134,12 @@ export class FolioButton extends LitElement {
         display: block;
         width: 16px;
         height: 16px;
+      }
+      /* The CTA's icon is a notch smaller than the card variant's. */
+      :host([variant='primary']) ::slotted(svg) {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
       }
     `,
   ];
