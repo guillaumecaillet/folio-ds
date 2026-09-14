@@ -1,6 +1,6 @@
 {
   "name": "@gcaillet/folio-ds",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Folio DS — Guillaume Caillet's design system. Swiss-style web components built with Lit.",
   "type": "module",
   "license": "MIT",

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.1 — 2026-09-14
+
+Deux couleurs qui vivaient en dur dans le JS du site entrent dans le système :
+`--folio-color-cta-light` (#8fb0d8) et `--folio-color-key-light` (#f2d49a), les
+extrémités pâles des rampes bleue et or qui composent la frise du process. Elles
+sont fixes dans les deux thèmes, comme le reste des rampes `cta` et `key`.
+
+Le troisième hors-palette, `#e7b968` dans le flicker des CTA, n'avait pas de
+raison d'exister : il est à 9/255 de `--folio-color-key-hot`, qui le remplace.
+
+86 tokens.
+
 ## 0.3.0 — 2026-09-14
 
 Tout passe sur une **grille 8 points**. C'est la version qui fait autorité : à

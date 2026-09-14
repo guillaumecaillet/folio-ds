@@ -31,6 +31,8 @@
     "key": { "$type": "color", "$value": "#e0ac4e", "$description": "Intentionally identical to dark — the gold fill is fixed across themes." },
     "key-hot": { "$type": "color", "$value": "#eec26d", "$description": "Intentionally identical to dark." },
     "key-ink": { "$type": "color", "$value": "#8a6320", "$description": "Darkened gold: #e0ac4e fails contrast on the light background." },
+    "cta-light": { "$type": "color", "$value": "#8fb0d8", "$description": "Intentionally identical to dark — the cta ramp is fixed across themes." },
+    "key-light": { "$type": "color", "$value": "#f2d49a", "$description": "Intentionally identical to dark — the key ramp is fixed across themes." },
     "glow": { "$type": "color", "$value": "transparent" }
   }
 }

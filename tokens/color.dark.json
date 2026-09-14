@@ -31,6 +31,8 @@
     "key": { "$type": "color", "$value": "#e0ac4e", "$description": "Key-project gold. Warm end of the process stream (the \"Ship\" pixels) and the KEY badge, so it cuts through the blue." },
     "key-hot": { "$type": "color", "$value": "#eec26d", "$description": "Key gold on hover" },
     "key-ink": { "$type": "color", "$value": "#e0ac4e", "$description": "Key gold as text. Darkened in the light theme to stay legible." },
+    "cta-light": { "$type": "color", "$value": "#8fb0d8", "$description": "Pale end of the CTA blue. The cold half of the process stream. Fixed across themes like the rest of the cta ramp." },
+    "key-light": { "$type": "color", "$value": "#f2d49a", "$description": "Pale end of the key gold. The warm half of the process stream." },
     "glow": { "$type": "color", "$value": "transparent", "$description": "Row hover wash. Transparent in both themes today — kept as a token so the effect can be reintroduced from one place." }
   }
 }
