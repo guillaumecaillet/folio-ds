@@ -19,7 +19,7 @@ type Story = StoryObj;
 
 export const WithFigures: Story = {
   render: () => html`
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap: var(--folio-space-4); max-width:720px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap: var(--folio-space-16); max-width:720px;">
       <folio-figure src=${SAMPLE} alt="Maquette A" zoomable caption="Cliquer pour agrandir"></folio-figure>
       <folio-figure src=${SAMPLE} alt="Maquette B" zoomable caption="Cliquer pour agrandir"></folio-figure>
     </div>

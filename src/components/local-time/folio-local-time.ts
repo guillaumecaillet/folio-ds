@@ -22,14 +22,14 @@ export class FolioLocalTime extends LitElement {
     :host {
       display: inline-flex;
       align-items: baseline;
-      gap: var(--folio-space-2);
+      gap: var(--folio-space-8);
       font-family: var(--folio-font-family-mono);
       font-size: var(--folio-text-small);
       color: var(--folio-color-text-muted);
       font-variant-numeric: tabular-nums;
     }
     .label {
-      font-size: var(--folio-text-label);
+      font-size: var(--folio-text-small);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--folio-color-text-dim);

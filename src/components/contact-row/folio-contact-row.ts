@@ -40,13 +40,13 @@ export class FolioContactRow extends LitElement {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-        gap: var(--folio-space-6);
-        padding: var(--folio-space-4) 0;
+        gap: var(--folio-space-24);
+        padding: var(--folio-space-16) 0;
         text-decoration: none;
         transition: padding-left var(--folio-transition);
       }
       a:hover {
-        padding-left: var(--folio-space-3);
+        padding-left: var(--folio-space-16);
       }
       .label {
         color: var(--folio-color-text-dim);
@@ -54,7 +54,7 @@ export class FolioContactRow extends LitElement {
       }
       .value {
         font-family: var(--folio-font-family-sans);
-        font-size: var(--folio-text-ui);
+        font-size: var(--folio-text-body);
         color: var(--folio-color-text-muted);
         transition: color var(--folio-transition-fast);
       }

@@ -42,9 +42,9 @@ export class FolioAccordionItem extends LitElement {
       .header {
         display: flex;
         align-items: baseline;
-        gap: var(--folio-space-4);
+        gap: var(--folio-space-16);
         width: 100%;
-        padding: var(--folio-space-4) 0;
+        padding: var(--folio-space-16) 0;
         background: none;
         border: none;
         border-radius: var(--folio-radius-none);
@@ -61,7 +61,7 @@ export class FolioAccordionItem extends LitElement {
       .meta {
         margin-left: auto;
         font-family: var(--folio-font-family-mono);
-        font-size: var(--folio-text-label);
+        font-size: var(--folio-text-small);
         color: var(--folio-color-text-muted);
         font-variant-numeric: tabular-nums;
         white-space: nowrap;
@@ -69,7 +69,7 @@ export class FolioAccordionItem extends LitElement {
       .toggle {
         flex: none;
         font-family: var(--folio-font-family-mono);
-        font-size: 0.9rem;
+        font-size: var(--folio-text-body);
         color: var(--folio-color-accent);
         transition: transform var(--folio-transition);
         transform-origin: center;
@@ -91,7 +91,7 @@ export class FolioAccordionItem extends LitElement {
         overflow: hidden;
       }
       .panel-content {
-        padding: 0 0 var(--folio-space-6);
+        padding: 0 0 var(--folio-space-24);
         font-size: var(--folio-text-body);
         line-height: 1.65;
         color: var(--folio-color-text-muted);

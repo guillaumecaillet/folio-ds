@@ -27,8 +27,8 @@ export class FolioThemeToggle extends LitElement {
         position: relative;
         display: grid;
         place-items: center;
-        width: 32px;
-        height: 32px;
+        width: var(--folio-control-md);
+        height: var(--folio-control-md);
         padding: 0;
         background: none;
         border: none;

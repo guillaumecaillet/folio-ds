@@ -81,7 +81,7 @@ export const Disabled: Story = {
 
 export const Group: Story = {
   render: () => html`
-    <div style="display:flex; gap: var(--folio-space-3); align-items: center;">
+    <div style="display:flex; gap: var(--folio-space-16); align-items: center;">
       <folio-button variant="primary" pixel>Me contacter</folio-button>
       <folio-button>LinkedIn</folio-button>
       <folio-button>Lire mon CV</folio-button>

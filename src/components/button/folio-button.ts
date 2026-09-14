@@ -49,10 +49,12 @@ export class FolioButton extends LitElement {
       .btn {
         display: inline-flex;
         align-items: center;
-        gap: var(--folio-space-2);
-        padding: var(--folio-space-2) var(--folio-space-3);
+        gap: var(--folio-space-8);
+        box-sizing: border-box;
+        height: var(--folio-control-lg);
+        padding-inline: var(--folio-space-16);
         font-family: var(--folio-font-family-sans);
-        font-size: var(--folio-text-small);
+        font-size: var(--folio-text-body);
         font-weight: 500;
         letter-spacing: -0.01em;
         color: var(--folio-color-text);
@@ -73,10 +75,8 @@ export class FolioButton extends LitElement {
       /* Primary: the one filled treatment. The blue is fixed across themes
          on purpose — see --folio-color-cta. */
       :host([variant='primary']) .btn {
-        /* 13px is the live value and is deliberately off the 4px scale: it is
-           what makes the CTA 46px tall. Horizontal padding is on-scale. */
-        padding: 13px var(--folio-space-6);
-        font-size: var(--folio-text-ui);
+        height: var(--folio-control-xl);
+        padding-inline: var(--folio-space-24);
         /* The card variant tightens tracking; the CTA does not. */
         letter-spacing: normal;
         color: var(--folio-color-cta-ink);
@@ -110,7 +110,7 @@ export class FolioButton extends LitElement {
         background: transparent;
         border-color: transparent;
         color: var(--folio-color-text-muted);
-        padding-inline: var(--folio-space-1);
+        padding-inline: var(--folio-space-8);
       }
       :host([variant='ghost']) .btn:hover {
         color: var(--folio-color-text);
@@ -135,10 +135,7 @@ export class FolioButton extends LitElement {
         width: 16px;
         height: 16px;
       }
-      /* The CTA's icon is a notch smaller than the card variant's. */
-      :host([variant='primary']) ::slotted(svg) {
-        width: 14px;
-        height: 14px;
+      ::slotted(svg) {
         flex-shrink: 0;
       }
     `,

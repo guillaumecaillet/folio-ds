@@ -35,7 +35,7 @@ export const reducedMotion = css`
 export const monoLabel = css`
   .mono-label {
     font-family: var(--folio-font-family-mono);
-    font-size: var(--folio-text-label);
+    font-size: var(--folio-text-small);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;

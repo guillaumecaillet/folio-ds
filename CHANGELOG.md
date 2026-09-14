@@ -1,5 +1,54 @@
 # Changelog
 
+## 0.3.0 — 2026-09-14
+
+Tout passe sur une **grille 8 points**. C'est la version qui fait autorité : à
+partir d'ici Figma puis le site s'alignent sur le système, et non l'inverse.
+
+### Typographie — 13 crans → 6
+
+`hero` (40→64) · `title` (32→48) · `heading` (28) · `subtitle` (20) · `body` (16)
+· `small` (12). Toutes multiples de 4.
+
+Chaque taille a un interligne apparié (`--folio-leading-*`), en rem et multiple
+de 8, pour que le texte retombe sur la grille. 12px devient le plancher du
+système : les 9,28px et 10px des badges remontent.
+
+Mono, majuscules et graisse sont désormais des *traitements* posés sur l'une des
+six tailles — ils ne créent plus de cran.
+
+### Espacement — nommé par sa valeur
+
+`--folio-space-24` vaut 24px. Plus d'index à mémoriser, et le renommage de la
+v0.2.0 devient sans objet. Échelle : 4 (demi-pas, padding interne des tags et
+badges uniquement), puis 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 128.
+
+### Hauteurs de contrôle — nouveau
+
+Les éléments interactifs ne se dimensionnent plus par leur padding vertical.
+`--folio-control-sm|md|lg|xl` = 24 / 32 / 40 / 48px, en `box-sizing: border-box`
+pour qu'une bordure ne les pousse jamais hors grille.
+
+Mesuré après coup : Button primary 48, card et ghost 40, Badge 24, Tag 24,
+Chip 32, ThemeToggle 32, SectionTitle 16, Stat 48. Aucun composant hors grille.
+
+### Élévation — nouveau, et sans ombre
+
+`--folio-elevation-0|1|2` sont des alias des trois fonds. Élever un élément, c'est
+monter d'un niveau de surface et lui donner une bordure 1px s'il flotte. Le
+système reste plat, délibérément.
+
+### Coins
+
+Radius toujours à 0 (`--folio-radius-none`), `--folio-radius-full` pour les
+pastilles. Le cran pixel passe de 10/5 à **8/4**, lui aussi sur la grille.
+
+### Ruptures
+
+Le CTA passe de 46 à **48px**, le Button card de 44 à **40px**, la typo UI de 14
+à **16px**, les labels de 11 à **12px**. Le site en ligne devra suivre — c'est
+attendu : le système fait foi à partir de cette version.
+
 ## 0.2.0 — 2026-09-10
 
 Passe de réconciliation. Le DS était figé au 16 juillet pendant que le portfolio

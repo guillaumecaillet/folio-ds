@@ -43,8 +43,8 @@ export class FolioProjectRow extends LitElement {
       a {
         display: flex;
         align-items: baseline;
-        gap: var(--folio-space-6);
-        padding: var(--folio-space-4) var(--folio-space-2);
+        gap: var(--folio-space-24);
+        padding: var(--folio-space-16) var(--folio-space-8);
         text-decoration: none;
         font-family: var(--folio-font-family-sans);
         transition: background var(--folio-transition-fast);
@@ -52,13 +52,13 @@ export class FolioProjectRow extends LitElement {
       .index {
         flex: none;
         font-family: var(--folio-font-family-mono);
-        font-size: var(--folio-text-label);
+        font-size: var(--folio-text-small);
         color: var(--folio-color-text-dim);
         font-variant-numeric: tabular-nums;
         transition: color var(--folio-transition-fast);
       }
       .name {
-        font-size: 1.05rem;
+        font-size: var(--folio-text-subtitle);
         font-weight: 500;
         letter-spacing: -0.01em;
         color: var(--folio-color-text);
@@ -71,7 +71,7 @@ export class FolioProjectRow extends LitElement {
       .kind {
         margin-left: auto;
         font-family: var(--folio-font-family-mono);
-        font-size: var(--folio-text-label);
+        font-size: var(--folio-text-small);
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: var(--folio-color-text-dim);

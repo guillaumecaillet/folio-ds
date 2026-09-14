@@ -18,8 +18,11 @@ export class FolioTag extends LitElement {
         display: inline-block;
       }
       .tag {
-        display: inline-block;
-        padding: var(--folio-space-1) var(--folio-space-3);
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: var(--folio-control-sm);
+        padding-inline: var(--folio-space-16);
         border: 1px solid var(--folio-color-border);
         border-radius: var(--folio-radius-none);
         color: var(--folio-color-text-muted);

@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 export const Bar = ({ token, px }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '4px 0' }}>
-    <code style={{ fontSize: 12, width: 140, flex: 'none' }}>{token}</code>
+    <code style={{ fontSize: 12, width: 150, flex: 'none' }}>{token}</code>
     <div style={{ width: `var(${token})`, height: 14, background: 'var(--folio-color-accent)' }} />
     <span style={{ fontSize: 12, opacity: 0.6 }}>{px}</span>
   </div>
@@ -12,38 +12,60 @@ export const Bar = ({ token, px }) => (
 
 # Spacing
 
-Échelle sur base 4px. Le blanc tournant fait partie du design : en cas de doute, prendre le cran au-dessus.
+**Grille 8 points.** Tout espacement, toute hauteur de composant et tout interligne est un multiple de 8. Le seul demi-pas est 4, réservé au padding interne des tags et badges — là où 8 casserait la hauteur de 24px.
 
-<Bar token="--folio-space-1" px="4px" />
-<Bar token="--folio-space-2" px="8px" />
-<Bar token="--folio-space-3" px="12px" />
-<Bar token="--folio-space-4" px="16px" />
-<Bar token="--folio-space-5" px="20px" />
-<Bar token="--folio-space-6" px="24px" />
-<Bar token="--folio-space-7" px="32px" />
-<Bar token="--folio-space-8" px="40px" />
-<Bar token="--folio-space-9" px="48px" />
-<Bar token="--folio-space-10" px="56px" />
-<Bar token="--folio-space-11" px="64px" />
-<Bar token="--folio-space-12" px="80px" />
-<Bar token="--folio-space-13" px="96px" />
+Les tokens sont nommés par leur valeur en pixels. `--folio-space-24` vaut 24px, sans table de correspondance à mémoriser : le nom *est* la valeur.
 
-> **v0.2.0** — l'échelle passe de 10 à 13 crans. Trois paliers manquaient pour décrire le site réel (20px, 56px, 80px) ; leur insertion décale les index à partir de 24px. Ancien `space-5` (24px) → nouveau `space-6`, et ainsi de suite.
+<Bar token="--folio-space-4" px="4px — demi-pas" />
+<Bar token="--folio-space-8" px="8px" />
+<Bar token="--folio-space-16" px="16px" />
+<Bar token="--folio-space-24" px="24px" />
+<Bar token="--folio-space-32" px="32px" />
+<Bar token="--folio-space-40" px="40px" />
+<Bar token="--folio-space-48" px="48px" />
+<Bar token="--folio-space-56" px="56px" />
+<Bar token="--folio-space-64" px="64px" />
+<Bar token="--folio-space-80" px="80px" />
+<Bar token="--folio-space-96" px="96px" />
+<Bar token="--folio-space-128" px="128px" />
+
+## Hauteurs de contrôle
+
+Les éléments interactifs ne se dimensionnent pas par leur padding vertical — ça dérive dès que la typo bouge. Ils prennent une hauteur fixe, en `box-sizing: border-box` pour qu'une bordure ne les pousse jamais hors grille.
+
+| Token | Hauteur | Composants |
+| --- | --- | --- |
+| `--folio-control-sm` | 24px | Badge, Tag |
+| `--folio-control-md` | 32px | Chip, ThemeToggle |
+| `--folio-control-lg` | 40px | Button `card` et `ghost`, fermeture du Lightbox |
+| `--folio-control-xl` | 48px | Button `primary` — le CTA |
 
 ## Conventions
 
 | Contexte | Token |
 | --- | --- |
-| Interstice d'un groupe de tags/chips | `--folio-space-2` |
-| Gap entre boutons | `--folio-space-3` |
-| Padding vertical des lignes de liste | `--folio-space-4` |
-| Gap entre colonnes d'une grille de stats | `--folio-space-7` |
-| Padding horizontal de page (desktop) | `--folio-space-9` |
-| Espacement entre sections | `--folio-space-11`–`--folio-space-13` |
+| Interstice d'un groupe de tags/chips | `--folio-space-8` |
+| Padding horizontal d'un bouton | `--folio-space-16` (CTA : `24`) |
+| Padding vertical des lignes de liste | `--folio-space-16` |
+| Gap entre colonnes d'une grille de stats | `--folio-space-32` |
+| Padding horizontal de page (desktop) | `--folio-space-48` |
+| Espacement entre sections | `--folio-space-64` à `--folio-space-128` |
 
-## Grille
+## Grille et coins
 
 - Contenu centré, largeur max de lecture ~720px, mesures de texte ≤ 60ch.
-- Breakpoint principal : `--folio-breakpoint-mobile` (768px). Un seul breakpoint — les layouts doivent être fluides entre les deux.
-- Le radius est unique et vaut zéro : `--folio-radius-none`. Seule exception, `--folio-radius-full` (50%) pour les pastilles de statut et la marque du nav.
-- Les coins crantés des CTA principaux ne sont pas un radius mais un `clip-path`, dimensionné par `--folio-pixel-notch` (10px) et `--folio-pixel-notch-inner` (5px). Voir `folio-button[variant="primary"][pixel]`.
+- Breakpoint principal : `--folio-breakpoint-mobile` (768px). Un seul breakpoint — les layouts sont fluides entre les deux.
+- **Le radius vaut zéro** : `--folio-radius-none`. Seule exception, `--folio-radius-full` (50%) pour les pastilles de statut et la marque du nav. Le système n'a pas d'échelle d'arrondis, et c'est délibéré.
+- Les coins crantés des CTA principaux ne sont pas un radius mais un `clip-path`, dimensionné par `--folio-pixel-notch` (8px) et `--folio-pixel-notch-inner` (4px) — eux aussi sur la grille.
+
+## Élévation
+
+Le système est plat : **aucune ombre portée**. L'élévation s'exprime par le niveau de surface, et par une bordure 1px quand l'élément flotte au-dessus du contenu.
+
+| Token | Surface | Usage |
+| --- | --- | --- |
+| `--folio-elevation-0` | `color-bg` | La page |
+| `--folio-elevation-1` | `color-bg-elevated` | Survols, panneaux surélevés, barres collantes |
+| `--folio-elevation-2` | `color-bg-card` | Cartes, popovers, toasts, chrome du lightbox |
+
+Les trois sont des alias des tokens de fond : ils suivent le thème sans redéclaration.

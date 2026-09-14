@@ -26,7 +26,7 @@ export const Disabled: Story = { args: { disabled: true } };
 
 export const FilterBar: Story = {
   render: () => html`
-    <div style="display:flex; flex-wrap:wrap; gap: var(--folio-space-2);">
+    <div style="display:flex; flex-wrap:wrap; gap: var(--folio-space-8);">
       <folio-chip selected>Tous</folio-chip>
       <folio-chip>Design system</folio-chip>
       <folio-chip>Produit</folio-chip>

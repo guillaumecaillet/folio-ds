@@ -29,6 +29,10 @@ function flatten(group, prefix = []) {
 
 function toCss(token) {
   const v = token.$value;
+  // DTCG alias: "{color.bg}" → var(--folio-color-bg)
+  if (typeof v === 'string' && /^\{[a-z0-9.-]+\}$/i.test(v)) {
+    return `var(--folio-${v.slice(1, -1).replace(/\./g, '-')})`;
+  }
   switch (token.$type) {
     case 'fontFamily':
       return v.map((f) => (f.includes(' ') ? `'${f}'` : f)).join(', ');

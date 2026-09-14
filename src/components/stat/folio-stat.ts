@@ -27,27 +27,29 @@ export class FolioStat extends LitElement {
       :host {
         display: block;
       }
+      /* 32px value + 16px label = 48px, so a stat occupies exactly six
+         grid rows with no gap of its own. */
       .stat {
         display: flex;
         flex-direction: column;
-        gap: var(--folio-space-1);
       }
       :host([variant='bar']) .stat {
         border-left: 2px solid var(--folio-color-accent);
-        padding-left: var(--folio-space-4);
+        padding-left: var(--folio-space-16);
       }
       .value {
         font-family: var(--folio-font-family-mono);
-        font-size: 1.6rem;
+        font-size: var(--folio-text-heading);
         font-weight: 500;
         color: var(--folio-color-text);
         font-variant-numeric: tabular-nums;
         letter-spacing: -0.02em;
-        line-height: 1.1;
+        line-height: var(--folio-leading-heading);
       }
       .label {
         color: var(--folio-color-text-muted);
         letter-spacing: 0.08em;
+        line-height: var(--folio-leading-small);
       }
     `,
   ];

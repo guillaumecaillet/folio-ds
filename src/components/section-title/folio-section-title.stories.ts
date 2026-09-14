@@ -24,7 +24,7 @@ export const Dim: Story = { args: { dim: true, label: 'Contexte' } };
 
 export const InSection: Story = {
   render: () => html`
-    <section style="max-width:56ch; display:flex; flex-direction:column; gap: var(--folio-space-4);">
+    <section style="max-width:56ch; display:flex; flex-direction:column; gap: var(--folio-space-16);">
       <folio-section-title>Le problème</folio-section-title>
       <p style="margin:0; font-size:0.95rem; line-height:1.65; color:var(--folio-color-text-muted);">
         Deux librairies de composants coexistaient, sans source de vérité. Chaque équipe

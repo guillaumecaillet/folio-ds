@@ -1,47 +1,63 @@
 {
-  "$description": "Folio DS theme-independent tokens: typography, spacing, motion, radius, z-index. Reconciled 2026-09-10 against the live portfolio (guillaumecaillet.com), which is the reference for the v0.2.0 release.",
+  "$description": "Folio DS theme-independent tokens. v0.3.0 puts everything on an 8pt grid: sizes are multiples of 4, line-heights, spacing and control heights are multiples of 8. Radius stays 0. Elevation is expressed by surface level, never by shadow.",
   "font": {
-    "family-sans": { "$type": "fontFamily", "$value": ["Space Grotesk", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"], "$description": "Primary typeface. Replaced Inter in v0.2.0 to match the live site." },
+    "family-sans": { "$type": "fontFamily", "$value": ["Space Grotesk", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"], "$description": "Primary typeface" },
     "family-mono": { "$type": "fontFamily", "$value": ["IBM Plex Mono", "monospace"], "$description": "Technical labels, data, tabular numerals" },
-    "family-display": { "$type": "fontFamily", "$value": ["Pixelify Sans", "Space Grotesk", "sans-serif"], "$description": "Pixel display face, added in v0.2.0. Section titles and the boot loader only — never body copy." }
+    "family-display": { "$type": "fontFamily", "$value": ["Pixelify Sans", "Space Grotesk", "sans-serif"], "$description": "Pixel display face. Hero, section titles and the boot loader only — never body copy, never below 20px." }
   },
   "text": {
-    "hero": { "$type": "dimension", "$value": "clamp(2.4rem, 5.5vw, 4rem)", "$description": "Landing hero" },
-    "title": { "$type": "dimension", "$value": "clamp(2rem, 4vw, 3rem)", "$description": "Page / case-study title" },
-    "heading": { "$type": "dimension", "$value": "1.75rem", "$description": "Section heading" },
-    "stat": { "$type": "dimension", "$value": "1.35rem", "$description": "Stat and metric values (mono, tabular)" },
-    "lead": { "$type": "dimension", "$value": "1.25rem", "$description": "Lead paragraph, accordion toggle" },
-    "subtitle": { "$type": "dimension", "$value": "1.125rem", "$description": "Subtitle, intro copy" },
-    "body-lg": { "$type": "dimension", "$value": "1.0625rem", "$description": "Long-form case-study body" },
-    "body": { "$type": "dimension", "$value": "0.9375rem", "$description": "Default body copy" },
-    "ui": { "$type": "dimension", "$value": "0.875rem", "$description": "Buttons, nav, interactive labels" },
-    "small": { "$type": "dimension", "$value": "0.8125rem", "$description": "Captions, figure captions" },
-    "caption": { "$type": "dimension", "$value": "0.75rem", "$description": "Chips, eyebrow labels, secondary UI" },
-    "label": { "$type": "dimension", "$value": "0.6875rem", "$description": "Mono uppercase labels, tags" },
-    "micro": { "$type": "dimension", "$value": "0.58rem", "$description": "Badges, smallest technical annotations. 0.58rem is the live KEY-badge size; the neighbouring 0.6rem on project-company should converge here." }
+    "$description": "Six sizes. Everything else — mono, uppercase, weight — is a treatment applied on top of one of these, not a size of its own.",
+    "hero": { "$type": "dimension", "$value": "clamp(2.5rem, 5.5vw, 4rem)", "$description": "40px on mobile, 64px on desktop. Fluid between; on-grid at both design breakpoints." },
+    "title": { "$type": "dimension", "$value": "clamp(2rem, 4vw, 3rem)", "$description": "32px on mobile, 48px on desktop." },
+    "heading": { "$type": "dimension", "$value": "1.75rem", "$description": "28px. Section headings." },
+    "subtitle": { "$type": "dimension", "$value": "1.25rem", "$description": "20px. Subtitles, intro and lead copy, accordion titles." },
+    "body": { "$type": "dimension", "$value": "1rem", "$description": "16px. Body copy, buttons, nav, stat values." },
+    "small": { "$type": "dimension", "$value": "0.75rem", "$description": "12px. Captions, chips, tags, mono labels, badges. The floor of the system." }
+  },
+  "leading": {
+    "$description": "Line-heights in rem so they land on the 8px grid. Display sizes use 1 and are on-grid because their sizes are.",
+    "hero": { "$type": "number", "$value": 1, "$description": "40 → 64px" },
+    "title": { "$type": "number", "$value": 1, "$description": "32 → 48px" },
+    "heading": { "$type": "dimension", "$value": "2rem", "$description": "32px on 28px" },
+    "subtitle": { "$type": "dimension", "$value": "2rem", "$description": "32px on 20px" },
+    "body": { "$type": "dimension", "$value": "1.5rem", "$description": "24px on 16px" },
+    "small": { "$type": "dimension", "$value": "1rem", "$description": "16px on 12px" }
   },
   "space": {
-    "1": { "$type": "dimension", "$value": "0.25rem", "$description": "4px" },
-    "2": { "$type": "dimension", "$value": "0.5rem", "$description": "8px" },
-    "3": { "$type": "dimension", "$value": "0.75rem", "$description": "12px" },
-    "4": { "$type": "dimension", "$value": "1rem", "$description": "16px" },
-    "5": { "$type": "dimension", "$value": "1.25rem", "$description": "20px" },
-    "6": { "$type": "dimension", "$value": "1.5rem", "$description": "24px" },
-    "7": { "$type": "dimension", "$value": "2rem", "$description": "32px" },
-    "8": { "$type": "dimension", "$value": "2.5rem", "$description": "40px" },
-    "9": { "$type": "dimension", "$value": "3rem", "$description": "48px" },
-    "10": { "$type": "dimension", "$value": "3.5rem", "$description": "56px" },
-    "11": { "$type": "dimension", "$value": "4rem", "$description": "64px" },
-    "12": { "$type": "dimension", "$value": "5rem", "$description": "80px" },
-    "13": { "$type": "dimension", "$value": "6rem", "$description": "96px" }
+    "$description": "Named by pixel value so the grid is legible in code and in Figma. 4 is the only half-step, reserved for inner component padding.",
+    "4": { "$type": "dimension", "$value": "0.25rem", "$description": "Half-step. Inner padding of tags and badges only." },
+    "8": { "$type": "dimension", "$value": "0.5rem" },
+    "16": { "$type": "dimension", "$value": "1rem" },
+    "24": { "$type": "dimension", "$value": "1.5rem" },
+    "32": { "$type": "dimension", "$value": "2rem" },
+    "40": { "$type": "dimension", "$value": "2.5rem" },
+    "48": { "$type": "dimension", "$value": "3rem" },
+    "56": { "$type": "dimension", "$value": "3.5rem" },
+    "64": { "$type": "dimension", "$value": "4rem" },
+    "80": { "$type": "dimension", "$value": "5rem" },
+    "96": { "$type": "dimension", "$value": "6rem" },
+    "128": { "$type": "dimension", "$value": "8rem" }
+  },
+  "control": {
+    "$description": "Fixed heights for interactive elements. Components set these with box-sizing: border-box so borders never push them off-grid.",
+    "sm": { "$type": "dimension", "$value": "1.5rem", "$description": "24px. Badges, tags." },
+    "md": { "$type": "dimension", "$value": "2rem", "$description": "32px. Chips, theme toggle, icon buttons." },
+    "lg": { "$type": "dimension", "$value": "2.5rem", "$description": "40px. Card and ghost buttons." },
+    "xl": { "$type": "dimension", "$value": "3rem", "$description": "48px. Primary CTA." }
   },
   "radius": {
     "none": { "$type": "dimension", "$value": "0", "$description": "The system's only radius — sharp corners are part of the identity" },
-    "full": { "$type": "dimension", "$value": "50%", "$description": "Circular. Reserved for status dots and the nav logo mark." }
+    "full": { "$type": "dimension", "$value": "50%", "$description": "Circular. Status dots and the nav mark only." }
   },
   "pixel": {
-    "notch": { "$type": "dimension", "$value": "10px", "$description": "Outer step of the pixel-corner clip-path on primary CTAs" },
-    "notch-inner": { "$type": "dimension", "$value": "5px", "$description": "Inner step of the pixel-corner clip-path" }
+    "notch": { "$type": "dimension", "$value": "8px", "$description": "Outer step of the pixel-corner clip-path on primary CTAs" },
+    "notch-inner": { "$type": "dimension", "$value": "4px", "$description": "Inner step of the pixel-corner clip-path" }
+  },
+  "elevation": {
+    "$description": "Three surface levels and no shadow. Raising an element means moving it up one level and, if it floats, giving it a 1px border.",
+    "0": { "$type": "color", "$value": "{color.bg}", "$description": "The page." },
+    "1": { "$type": "color", "$value": "{color.bg-elevated}", "$description": "Hover states, raised panels, sticky bars." },
+    "2": { "$type": "color", "$value": "{color.bg-card}", "$description": "Cards, popovers, toasts, the lightbox chrome." }
   },
   "motion": {
     "ease-out-expo": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1], "$description": "Primary easing" },
@@ -59,7 +75,7 @@
     "nav": { "$type": "number", "$value": 500 },
     "tooltip": { "$type": "number", "$value": 600 },
     "overlay": { "$type": "number", "$value": 700 },
-    "lightbox": { "$type": "number", "$value": 9999, "$description": "Full-screen image viewer, above everything" }
+    "lightbox": { "$type": "number", "$value": 9999 }
   },
   "breakpoint": {
     "mobile": { "$type": "dimension", "$value": "768px", "$description": "Primary breakpoint" }

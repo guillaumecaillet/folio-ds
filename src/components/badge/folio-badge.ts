@@ -25,13 +25,13 @@ export class FolioBadge extends LitElement {
       .badge {
         display: inline-flex;
         align-items: center;
-        /* border-box so the bordered key tone stays 24px tall like the
-           filled tones, instead of growing to 26px. */
+        /* border-box so the bordered key tone keeps the same height as the
+           filled tones instead of growing by its border. */
         box-sizing: border-box;
-        height: 24px;
-        padding-inline: var(--folio-space-2);
+        height: var(--folio-control-sm);
+        padding-inline: var(--folio-space-8);
         border-radius: var(--folio-radius-none);
-        font-size: var(--folio-text-micro);
+        font-size: var(--folio-text-small);
         font-weight: 700;
         letter-spacing: 0.08em;
         line-height: 1;

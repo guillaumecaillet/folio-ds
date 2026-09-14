@@ -30,10 +30,12 @@ export class FolioChip extends LitElement {
       .chip {
         display: inline-flex;
         align-items: center;
-        gap: var(--folio-space-2);
-        padding: 6px var(--folio-space-3);
+        gap: var(--folio-space-8);
+        box-sizing: border-box;
+        height: var(--folio-control-md);
+        padding-inline: var(--folio-space-16);
         font-family: var(--folio-font-family-sans);
-        font-size: 0.72rem;
+        font-size: var(--folio-text-small);
         font-weight: 500;
         letter-spacing: 0.02em;
         color: var(--folio-color-text-muted);

@@ -24,7 +24,7 @@ export const Key: Story = {
 
 export const Tones: Story = {
   render: () => html`
-    <div style="display:flex; gap: var(--folio-space-2); flex-wrap:wrap;">
+    <div style="display:flex; gap: var(--folio-space-8); flex-wrap:wrap;">
       <folio-badge tone="accent">Focus</folio-badge>
       <folio-badge tone="ok">Livré</folio-badge>
       <folio-badge tone="warn">En cours</folio-badge>

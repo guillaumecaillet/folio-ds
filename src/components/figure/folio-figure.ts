@@ -62,7 +62,7 @@ export class FolioFigure extends LitElement {
         letter-spacing: 0.14em;
       }
       figcaption {
-        padding-top: var(--folio-space-2);
+        padding-top: var(--folio-space-8);
         font-size: var(--folio-text-small);
         color: var(--folio-color-text-muted);
         line-height: 1.5;

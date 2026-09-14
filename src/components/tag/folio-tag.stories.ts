@@ -16,7 +16,7 @@ export const Default: Story = {};
 
 export const Group: Story = {
   render: () => html`
-    <div style="display:flex; flex-wrap:wrap; gap: var(--folio-space-2);">
+    <div style="display:flex; flex-wrap:wrap; gap: var(--folio-space-8);">
       <folio-tag>Design system</folio-tag>
       <folio-tag>UX Research</folio-tag>
       <folio-tag>Figma</folio-tag>

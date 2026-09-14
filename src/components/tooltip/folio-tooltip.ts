@@ -36,9 +36,9 @@ export class FolioTooltip extends LitElement {
         left: 50%;
         z-index: var(--folio-z-tooltip);
         transform: translateX(-50%) translateY(2px);
-        padding: 6px 10px;
+        padding: var(--folio-space-8) var(--folio-space-16);
         font-family: var(--folio-font-family-sans);
-        font-size: 0.72rem;
+        font-size: var(--folio-text-small);
         font-weight: 500;
         white-space: nowrap;
         color: var(--folio-color-bg);

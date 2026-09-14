@@ -35,7 +35,7 @@ export class FolioLink extends LitElement {
         position: relative;
         display: inline-flex;
         align-items: center;
-        gap: var(--folio-space-2);
+        gap: var(--folio-space-8);
         font-family: var(--folio-font-family-sans);
         text-decoration: none;
         transition: color var(--folio-transition-fast);
@@ -43,7 +43,7 @@ export class FolioLink extends LitElement {
 
       /* nav */
       :host([variant='nav']) a {
-        font-size: var(--folio-text-ui);
+        font-size: var(--folio-text-body);
         color: var(--folio-color-text-muted);
         letter-spacing: 0.01em;
       }
