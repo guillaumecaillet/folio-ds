@@ -1,6 +1,6 @@
 # Folio DS
 
-Design system du portfolio de [Guillaume Caillet](https://www.guillaumecaillet.com) — base Swiss design (grille stricte, hiérarchie typographique, blanc tournant, angles droits) avec un accent pixel assumé : Pixelify Sans sur les titres de section, coins crantés sur les CTA principaux.
+Design system du portfolio de [Guillaume Caillet](https://www.guillaumecaillet.fr) — base Swiss design (grille stricte, hiérarchie typographique, blanc tournant, angles droits) avec un accent pixel assumé : Pixelify Sans sur les titres de section, coins crantés sur les CTA principaux.
 
 17 web components construits avec [Lit](https://lit.dev), thémés dark/light par CSS custom properties, documentés dans Storybook (docs style Polaris : propriétés, slots, événements, accessibilité).
 
