@@ -4,11 +4,11 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Typography
 
-La hiérarchie typographique est la colonne vertébrale du système — c'est elle, pas la décoration, qui structure les pages. Trois familles :
+La hiérarchie typographique est la colonne vertébrale du système — c'est elle, pas la décoration, qui structure les pages. Trois familles, trois voix :
 
-- **Space Grotesk** (`--folio-font-family-sans`) — tout le texte courant et l'UI.
-- **IBM Plex Mono** (`--folio-font-family-mono`) — labels techniques, index, dates et chiffres, toujours en `tabular-nums` quand ils s'alignent.
-- **Pixelify Sans** (`--folio-font-family-display`) — hero, titres de section et boot loader **uniquement**. Jamais de texte courant, jamais en dessous de 20px.
+- **IBM Plex Mono** (`--folio-font-family-sans` et `--folio-font-family-mono`) — la structure : h2/h3, nav, boutons, chips, labels, index, dates et chiffres (`tabular-nums` quand ils s'alignent). Tous les composants du DS parlent en mono.
+- **Faculty Glyphic** (`--folio-font-family-body`) — la lecture : paragraphes et descriptions **uniquement**. Jamais d'UI, jamais de titre.
+- **Jersey 15** (`--folio-font-family-display`) — le pixel : hero (h1) et boot loader **uniquement**. Jamais en dessous de 32px.
 
 Les trois sont auto-hébergées (aucune requête tierce).
 
@@ -54,7 +54,7 @@ font-variant-numeric: tabular-nums;
 
 ## Règles
 
-- Graisses disponibles en Space Grotesk : 400 et 500. **Il n'y a pas de 600** — les titres sont en 500, pas en semi-bold synthétique.
+- Jersey 15 et Faculty Glyphic n'existent qu'en 400. IBM Plex Mono va de 400 à 600 ; les titres sont en 500.
 - Corps en 400, mesure ≤ 60ch.
 - Jamais plus de deux graisses par écran ; la hiérarchie passe par la taille et la couleur.
-- Pixelify Sans n'est jamais justifiée ni en interlettrage négatif — la police est déjà une grille.
+- Jersey 15 n'est jamais justifiée ni en interlettrage négatif — la police est déjà une grille.

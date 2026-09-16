@@ -1,9 +1,10 @@
 {
   "$description": "Folio DS theme-independent tokens. v0.3.0 puts everything on an 8pt grid: sizes are multiples of 4, line-heights, spacing and control heights are multiples of 8. Radius stays 0. Elevation is expressed by surface level, never by shadow.",
   "font": {
-    "family-sans": { "$type": "fontFamily", "$value": ["Space Grotesk", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"], "$description": "Primary typeface" },
+    "family-sans": { "$type": "fontFamily", "$value": ["IBM Plex Mono", "monospace"], "$description": "Structural face: h2/h3, nav, buttons, chips, and every DS component. Since v0.4.0 this is the mono — the UI speaks in one voice." },
+    "family-body": { "$type": "fontFamily", "$value": ["Faculty Glyphic", "Georgia", "serif"], "$description": "Reading face. Paragraphs and descriptions only — never UI, never headings." },
     "family-mono": { "$type": "fontFamily", "$value": ["IBM Plex Mono", "monospace"], "$description": "Technical labels, data, tabular numerals" },
-    "family-display": { "$type": "fontFamily", "$value": ["Pixelify Sans", "Space Grotesk", "sans-serif"], "$description": "Pixel display face. Hero, section titles and the boot loader only — never body copy, never below 20px." }
+    "family-display": { "$type": "fontFamily", "$value": ["Jersey 15", "IBM Plex Mono", "monospace"], "$description": "Pixel display face. Hero (h1) and the boot loader only — never body copy, never below 32px." }
   },
   "text": {
     "$description": "Six sizes. Everything else — mono, uppercase, weight — is a treatment applied on top of one of these, not a size of its own.",

@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 — 2026-09-15
+
+Nouvelle pile typographique, alignée sur le kit de présentation. Trois voix :
+
+- **IBM Plex Mono** devient `--folio-font-family-sans` — la structure (h2/h3,
+  nav, boutons, chips) et tous les composants du DS. `family-mono` ne change pas.
+- **Faculty Glyphic**, nouveau token `--folio-font-family-body` — les
+  paragraphes et descriptions, et rien d'autre.
+- **Jersey 15** remplace Pixelify Sans en `--folio-font-family-display` — hero
+  et boot loader. Plancher relevé de 20 à 32px.
+
+Space Grotesk et Pixelify Sans sortent du système (fichiers et `@font-face`
+supprimés). 87 tokens.
+
 ## 0.3.1 — 2026-09-14
 
 Deux couleurs qui vivaient en dur dans le JS du site entrent dans le système :
